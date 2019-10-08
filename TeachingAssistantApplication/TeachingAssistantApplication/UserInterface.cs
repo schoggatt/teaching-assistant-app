@@ -16,5 +16,10 @@ namespace TeachingAssistantApplication
         {
             InitializeComponent();
         }
+
+        private void uxLogin_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
