@@ -49,7 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.uxInputBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.uxSubmit = new System.Windows.Forms.Button();
             this.uxChatBox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
@@ -231,14 +231,15 @@
             this.uxInputBox.Size = new System.Drawing.Size(522, 50);
             this.uxInputBox.TabIndex = 20;
             // 
-            // button1
+            // uxSubmit
             // 
-            this.button1.Location = new System.Drawing.Point(540, 629);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 50);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Submit Question";
-            this.button1.UseVisualStyleBackColor = true;
+            this.uxSubmit.Location = new System.Drawing.Point(540, 629);
+            this.uxSubmit.Name = "uxSubmit";
+            this.uxSubmit.Size = new System.Drawing.Size(127, 50);
+            this.uxSubmit.TabIndex = 21;
+            this.uxSubmit.Text = "Submit Question";
+            this.uxSubmit.UseVisualStyleBackColor = true;
+            this.uxSubmit.Click += new System.EventHandler(this.UxSubmit_Click);
             // 
             // uxChatBox
             // 
@@ -266,7 +267,7 @@
             this.ClientSize = new System.Drawing.Size(674, 691);
             this.Controls.Add(this.uxDisconnect);
             this.Controls.Add(this.uxChatBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.uxSubmit);
             this.Controls.Add(this.uxInputBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -313,7 +314,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox uxInputBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button uxSubmit;
         private System.Windows.Forms.ListBox uxChatBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
