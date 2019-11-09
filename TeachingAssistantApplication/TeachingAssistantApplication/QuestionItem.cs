@@ -8,6 +8,9 @@ namespace TeachingAssistantApplication
 {
     public class QuestionItem 
     {
+        private string _IP;
+        private string _username;
+
         /// <summary>
         /// Whether the question has been answered
         /// Default to false
@@ -23,9 +26,11 @@ namespace TeachingAssistantApplication
         /// Constructor for the question item
         /// </summary>
         /// <param name="question"></param> The question
-        public QuestionItem(string question)
+        public QuestionItem(string question, string ip, string username)
         {
             Question = question;
+            _IP = ip;
+            _username = username;
         }
     }
 }

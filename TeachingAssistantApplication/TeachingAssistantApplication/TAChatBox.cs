@@ -41,6 +41,7 @@ namespace TeachingAssistantApplication
         int s = 0;
         public TAChatBox(string username, bool isInstructor)
         {
+            _serverTimer = new Timer();
             _serverTimer.Enabled = true;
             _serverTimer.Interval = 10000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
@@ -170,13 +171,27 @@ namespace TeachingAssistantApplication
 
         private async void ServerTimer_Tick(object sender, EventArgs e)
         {
-            //Get the question from the database
-            //Push the question into the queue
-            //Delete the question 
+
+            //Iterate through the questions database from top to bottom
+            //For each question branch make a new question
+            //Add it to the teacher queue
+            //Delete the branch
+
+            
 
             FirebaseResponse response = await client.DeleteAsync("Question/" + _username);
             QuestionInformation userData = response.ResultAs<QuestionInformation>();
 
+            //Once empty upload that queue to the cloud
+
+            if (_isInstructor)
+            {
+
+            }
+            else
+            {
+                // queue = queue stored in the cloud
+            }
         }
 
         private void UxDisconnect_Click(object sender, EventArgs e)
