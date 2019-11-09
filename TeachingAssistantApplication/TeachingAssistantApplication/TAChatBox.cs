@@ -244,7 +244,7 @@ namespace TeachingAssistantApplication
                         }
                     }
                     queue.AddQuestion(questions.Dequeue(), userData.IP, userData.username);
-                    uxQuestionCount.Text = queue.Count.ToString();
+                    uxQuestionCount.Text = "# of Questions: " + queue.Count.ToString();
                     FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
                     userData.Count--;
                 }
