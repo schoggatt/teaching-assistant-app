@@ -27,8 +27,6 @@ namespace TeachingAssistantApplication
 
         public string _username;
 
-        public string _password;
-
         public Login()
         {
             InitializeComponent();
@@ -36,31 +34,87 @@ namespace TeachingAssistantApplication
         
         private void Login_Load(object sender, EventArgs e)
         {
-            client = new FireSharp.FirebaseClient(config);
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+            }
+            catch
+            {
+                MessageBox.Show("Connection Problem");
+            }
 
-            if (client != null)
-            {
-                MessageBox.Show("Connected");
-            }
-            else if (client == null)
-            {
-                MessageBox.Show("Empty");
-            }
-            else
-            {
-                MessageBox.Show("else");
-            }
         }
 
         private async void UxLoginButton_Click(object sender, EventArgs e)
         {
-            var data = new Data
+            if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
+            {
+                MessageBox.Show("Please select either Instructor or Student");
+            }
+            FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
+
+            Data obj = retrieve.ResultAs<Data>();
+            var currUser = new Data
             {
                 username = uxLogin.Text,
                 password = uxPassword.Text
             };
 
-            SetResponse response = await client.SetAsync("Login Information/" + uxLogin.Text, data);
+            if (Data.IsEqual(currUser, obj))
+            {
+                _username = obj.username;
+                UserInterface TA = new UserInterface(_username);
+                TA.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Error: " + Data.error);
+            }
+            this.Close();
+            
+            
+        }
+
+        private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(uxInstructorSelection.Checked || uxStudentSelection.Checked )
+            {
+                if (uxLogin.Text == "")
+                {
+                    MessageBox.Show("Please enter a username");
+                }
+                else if (uxPassword.Text == "")
+                {
+                    MessageBox.Show("Please enter a password");
+                }
+                else if (uxLogin.Text == "" && uxPassword.Text == "")
+                {
+                    MessageBox.Show("Please enter a username and a password");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please pick Instructor or Student");
+            }
+
+            //Add a lot more check cases
+
+            var newUser = new Data
+            {
+                username = uxLogin.Text,
+                password = uxPassword.Text
+            };
+
+            if (uxStudentSelection.Checked)
+            {
+                SetResponse studResponse = await client.SetAsync("Student Information/" + uxLogin.Text, newUser);
+            }
+            else if(uxInstructorSelection.Checked)
+            {
+                SetResponse instructResponse = await client.SetAsync("Instructor Information/" + uxLogin.Text, newUser);
+            }
+            
+
         }
     }
 }

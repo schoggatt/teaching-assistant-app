@@ -28,24 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.uxLogin = new System.Windows.Forms.TextBox();
             this.uxLoginButton = new System.Windows.Forms.Button();
-            this.uxInstructor = new System.Windows.Forms.RadioButton();
+            this.uxInstructorSelection = new System.Windows.Forms.RadioButton();
             this.uxStudentSelection = new System.Windows.Forms.RadioButton();
-            this.uxTitle = new System.Windows.Forms.Label();
             this.uxExit = new System.Windows.Forms.Button();
             this.uxUsernameLbl = new System.Windows.Forms.Label();
             this.uxPassword = new System.Windows.Forms.TextBox();
             this.uxPasswordLbl = new System.Windows.Forms.Label();
+            this.uxRegisterLink = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // uxLogin
             // 
@@ -61,22 +56,22 @@
             this.uxLoginButton.Location = new System.Drawing.Point(70, 294);
             this.uxLoginButton.Name = "uxLoginButton";
             this.uxLoginButton.Size = new System.Drawing.Size(100, 40);
-            this.uxLoginButton.TabIndex = 3;
+            this.uxLoginButton.TabIndex = 9;
             this.uxLoginButton.Text = "Login";
             this.uxLoginButton.UseVisualStyleBackColor = true;
             this.uxLoginButton.Click += new System.EventHandler(this.UxLoginButton_Click);
             // 
-            // uxInstructor
+            // uxInstructorSelection
             // 
-            this.uxInstructor.AutoSize = true;
-            this.uxInstructor.Location = new System.Drawing.Point(91, 173);
-            this.uxInstructor.Name = "uxInstructor";
-            this.uxInstructor.Size = new System.Drawing.Size(69, 17);
-            this.uxInstructor.TabIndex = 4;
-            this.uxInstructor.TabStop = true;
-            this.uxInstructor.Text = "Instructor";
-            this.uxInstructor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uxInstructor.UseVisualStyleBackColor = true;
+            this.uxInstructorSelection.AutoSize = true;
+            this.uxInstructorSelection.Location = new System.Drawing.Point(91, 173);
+            this.uxInstructorSelection.Name = "uxInstructorSelection";
+            this.uxInstructorSelection.Size = new System.Drawing.Size(69, 17);
+            this.uxInstructorSelection.TabIndex = 4;
+            this.uxInstructorSelection.TabStop = true;
+            this.uxInstructorSelection.Text = "Instructor";
+            this.uxInstructorSelection.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uxInstructorSelection.UseVisualStyleBackColor = true;
             // 
             // uxStudentSelection
             // 
@@ -88,15 +83,6 @@
             this.uxStudentSelection.TabStop = true;
             this.uxStudentSelection.Text = "Student";
             this.uxStudentSelection.UseVisualStyleBackColor = true;
-            // 
-            // uxTitle
-            // 
-            this.uxTitle.AutoSize = true;
-            this.uxTitle.Location = new System.Drawing.Point(88, 100);
-            this.uxTitle.Name = "uxTitle";
-            this.uxTitle.Size = new System.Drawing.Size(148, 13);
-            this.uxTitle.TabIndex = 6;
-            this.uxTitle.Text = "insert cool title mybe an image";
             // 
             // uxExit
             // 
@@ -122,8 +108,9 @@
             this.uxPassword.Location = new System.Drawing.Point(91, 247);
             this.uxPassword.Multiline = true;
             this.uxPassword.Name = "uxPassword";
+            this.uxPassword.PasswordChar = '•';
             this.uxPassword.Size = new System.Drawing.Size(175, 30);
-            this.uxPassword.TabIndex = 9;
+            this.uxPassword.TabIndex = 3;
             // 
             // uxPasswordLbl
             // 
@@ -134,39 +121,65 @@
             this.uxPasswordLbl.TabIndex = 10;
             this.uxPasswordLbl.Text = "Password:";
             // 
+            // uxRegisterLink
+            // 
+            this.uxRegisterLink.AutoSize = true;
+            this.uxRegisterLink.Location = new System.Drawing.Point(147, 337);
+            this.uxRegisterLink.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.uxRegisterLink.Name = "uxRegisterLink";
+            this.uxRegisterLink.Size = new System.Drawing.Size(46, 13);
+            this.uxRegisterLink.TabIndex = 11;
+            this.uxRegisterLink.TabStop = true;
+            this.uxRegisterLink.Text = "Register";
+            this.uxRegisterLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UxRegisterLink_LinkClicked);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(91, 32);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(123, 106);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 357);
+            this.Controls.Add(this.uxRegisterLink);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.uxPasswordLbl);
             this.Controls.Add(this.uxPassword);
             this.Controls.Add(this.uxUsernameLbl);
             this.Controls.Add(this.uxExit);
-            this.Controls.Add(this.uxTitle);
             this.Controls.Add(this.uxStudentSelection);
-            this.Controls.Add(this.uxInstructor);
+            this.Controls.Add(this.uxInstructorSelection);
             this.Controls.Add(this.uxLoginButton);
             this.Controls.Add(this.uxLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox uxLogin;
         private System.Windows.Forms.Button uxLoginButton;
-        private System.Windows.Forms.RadioButton uxInstructor;
+        private System.Windows.Forms.RadioButton uxInstructorSelection;
         private System.Windows.Forms.RadioButton uxStudentSelection;
-        private System.Windows.Forms.Label uxTitle;
         private System.Windows.Forms.Button uxExit;
         private System.Windows.Forms.Label uxUsernameLbl;
         private System.Windows.Forms.TextBox uxPassword;
         private System.Windows.Forms.Label uxPasswordLbl;
+        private System.Windows.Forms.LinkLabel uxRegisterLink;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

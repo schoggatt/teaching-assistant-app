@@ -160,7 +160,14 @@ namespace TeachingAssistantApplication
                 msg = enc.GetBytes(_username + ": " + uxInputBox.Text);
 
                 sck.Send(msg);
-                uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
+                if(uxInputBox.Text != "")
+                {
+                    uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Enter a Message.");
+                }
                 uxInputBox.Clear();
             }
             catch (Exception ex)
