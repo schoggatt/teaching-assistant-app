@@ -66,7 +66,7 @@ namespace TeachingAssistantApplication
             queue = new QuestionQueue();
             InitializeComponent();
             uxQuestionCount.Text += queue.Count.ToString();
-            uxRecommended.Text += queue.GetTime();
+            uxRecommended.Text = GetTime(out int seconds, out int minutes);
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
 
             try
@@ -315,11 +315,16 @@ namespace TeachingAssistantApplication
         /// <param name="e"></param> The event
         private void UxNextQuestion_Click(object sender, EventArgs e)
         {
+            uxQuestionTimer.Enabled = false;
             uxChatBox.Items.Add("-- NEW QUESTION CONVERSATIONS INITIATED --");
             _currentQuestion = queue.GetNextQuestion();
             uxQuestionLabel.Text = "Question: " + _currentQuestion.Question;
             uxStudentLabel.Text = "Student: " + _currentQuestion.Username;
+            uxQuestionTimer.Enabled = true;
             uxFriendIP.Text = _currentQuestion.IP;
+            GetTime(out int seconds, out int minutes);
+            m = minutes;
+            s = seconds;
         }
 
         /// <summary>
@@ -333,6 +338,22 @@ namespace TeachingAssistantApplication
                 return "[Teaching Assisant] -- ";
             }
             return "[Student] -- ";
+        }
+
+        /// <summary>
+        /// Gets the aloted time for a question.
+        /// </summary>
+        /// <param name="seconds"></param> Seconds of time
+        /// <param name="minutes"></param> Minutes of time
+        /// <returns></returns>
+        private string GetTime(out int seconds, out int minutes)
+        {
+            int millis = queue.GetTime();
+            seconds = millis / 1000;
+            minutes = seconds / 60;
+            seconds -= (minutes * 60);
+            string result = "Time Limit: " + string.Format("{0:#0}:{1:00}", minutes, seconds);
+            return result;
         }
     }
 }

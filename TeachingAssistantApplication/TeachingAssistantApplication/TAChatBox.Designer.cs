@@ -194,9 +194,9 @@
             this.uxRecommended.Location = new System.Drawing.Point(4, 28);
             this.uxRecommended.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxRecommended.Name = "uxRecommended";
-            this.uxRecommended.Size = new System.Drawing.Size(115, 13);
+            this.uxRecommended.Size = new System.Drawing.Size(104, 17);
             this.uxRecommended.TabIndex = 16;
-            this.uxRecommended.Text = "Recommended Time: ";
+            this.uxRecommended.Text = "Time Limit: ";
             // 
             // uxQuestionCount
             // 
