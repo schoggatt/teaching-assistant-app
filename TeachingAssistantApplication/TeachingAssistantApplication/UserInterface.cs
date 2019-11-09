@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 
@@ -17,6 +17,7 @@ namespace TeachingAssistantApplication
     {
         Socket sck;
         EndPoint epLocal, epRemote;
+        byte[] buffer;
         QuestionQueue queue;
 
         int m = 0;
@@ -28,7 +29,16 @@ namespace TeachingAssistantApplication
             uxQuestionCount.Text += queue.Count.ToString();
             uxRecommended.Text += queue.GetTime();
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
-            Console.WriteLine("Test");
+
+            IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
+
+            foreach (IPAddress address in localIP)
+            {
+                if (address.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    uxLocalIP.Text = address.ToString();
+                }
+            }
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -59,16 +69,21 @@ namespace TeachingAssistantApplication
                 int size = sck.EndReceiveFrom(aResult, ref epRemote);
                 if(size > 0)
                 {
-                    byte[] receivedData = new byte[1464];
+                    byte[] receivedData = new byte[1500];
                     receivedData = (byte[])aResult.AsyncState;
 
                     ASCIIEncoding eEncoding = new ASCIIEncoding();
                     string receivedMessage = eEncoding.GetString(receivedData);
 
-                    uxChatBox.Items.Add("Friend: " + receivedMessage);
+                    ListBox.CheckForIllegalCrossThreadCalls = false;
+                    this.uxChatBox.Invoke(new MethodInvoker(delegate ()
+                    {
+                        uxChatBox.Items.Add("Friend: " + receivedMessage);
+                    }));
+                    
                 }
 
-                byte[] buffer = new byte[1500];
+                buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
             }
             catch(Exception ex)
@@ -87,7 +102,7 @@ namespace TeachingAssistantApplication
                 epRemote = new IPEndPoint(IPAddress.Parse(uxFriendIP.Text), Convert.ToInt32(uxFriendPort.Text));
                 sck.Connect(epRemote);
 
-                byte[] buffer = new byte[1500];
+                buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
                 uxStart.Enabled = false;
@@ -120,17 +135,12 @@ namespace TeachingAssistantApplication
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
         }
 
-        private void UxSubmit_Click(object sender, EventArgs e)
-        {
-            queue.AddQuestion(uxInputQuestion.Text); //Add a new question object
-
-        }
 
         private void UxSend_Click(object sender, EventArgs e)
         {
             try
             {
-                System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+                ASCIIEncoding enc = new ASCIIEncoding();
                 byte[] msg = new byte[1500];
                 msg = enc.GetBytes(uxInputBox.Text);
 
@@ -143,7 +153,6 @@ namespace TeachingAssistantApplication
                 MessageBox.Show(ex.ToString());
             }
         }
-
 
     }
 }

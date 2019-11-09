@@ -51,6 +51,8 @@
             this.uxInputBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.uxChatBox = new System.Windows.Forms.ListBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.uxLocalBox.SuspendLayout();
             this.uxRemoteGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -236,7 +238,6 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Submit Question";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.UxSubmit_Click);
             // 
             // uxChatBox
             // 
@@ -302,6 +303,8 @@
         private System.Windows.Forms.TextBox uxInputBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox uxChatBox;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 
