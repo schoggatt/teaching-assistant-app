@@ -80,7 +80,7 @@ namespace TeachingAssistantApplication
                     ListBox.CheckForIllegalCrossThreadCalls = false;
                     this.uxChatBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        uxChatBox.Items.Add(_username + ": " + receivedMessage);
+                            uxChatBox.Items.Add(_username + ": " + receivedMessage);
                     }));
                     
                 }
@@ -160,7 +160,14 @@ namespace TeachingAssistantApplication
                 msg = enc.GetBytes(uxInputBox.Text);
 
                 sck.Send(msg);
-                uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
+                if(uxInputBox.Text != "")
+                {
+                    uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Enter a Message.");
+                }
                 uxInputBox.Clear();
             }
             catch (Exception ex)
