@@ -95,7 +95,7 @@ namespace TeachingAssistantApplication
                 uxStart.Enabled = false;
                 uxStart.Text = "Connected";
                 uxSend.Enabled = true;
-                uxInputBox.Focus();
+                //uxInputBox.Focus();
             }
             catch(Exception ex)
             {
