@@ -58,7 +58,7 @@ namespace TeachingAssistantApplication
         {
             _serverTimer = new Timer();
             _serverTimer.Enabled = true;
-            _serverTimer.Interval = 5000;
+            _serverTimer.Interval = 30000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
 
             _username = username;
@@ -219,7 +219,6 @@ namespace TeachingAssistantApplication
             FirebaseResponse retrieve = await client.GetAsync("Question Information/" + _username);
             QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
 
-
             //Call a helper to get all of the student usernames and place each one in a queue
             if (userData != null)
             { //Changes
@@ -230,7 +229,7 @@ namespace TeachingAssistantApplication
 
                 //Once empty upload that queue to the cloud
 
-                if (_isInstructor && userData.Count > 0 || userData != null)
+                if (_isInstructor && userData.Count > 0)
                 {
                     while (usernames.Count > 0)
                     {
@@ -307,7 +306,7 @@ namespace TeachingAssistantApplication
             {
                 ASCIIEncoding enc = new ASCIIEncoding();
                 byte[] msg = new byte[1500];
-                msg = enc.GetBytes(GetTag() + _username + ": " + uxInputBox.Text);
+                msg = enc.GetBytes(GetTag() + _username + ": " + uxInputBox.Text + "\r\n");
 
                 sck.Send(msg);
                 if(uxInputBox.Text != "")
