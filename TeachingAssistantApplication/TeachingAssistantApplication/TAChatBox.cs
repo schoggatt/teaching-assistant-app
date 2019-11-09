@@ -17,8 +17,14 @@ using FireSharp.Response;
 
 namespace TeachingAssistantApplication
 {
+    /// <summary>
+    /// Interface for the application.
+    /// </summary>
     public partial class TAChatBox : Form
     {
+
+        //Class global assets
+
         IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "EoEWF8RsVsBlIsKE4JqcfloXeqEndWKJVKxlBM7p",
@@ -35,11 +41,18 @@ namespace TeachingAssistantApplication
         QuestionQueue queue;
         string _username;
         bool _isInstructor;
+        QuestionItem _currentQuestion;
 
         Timer _serverTimer;
 
         int m = 0;
         int s = 0;
+
+        /// <summary>
+        /// Constructor for a new interface
+        /// </summary>
+        /// <param name="username"></param> Username of this user
+        /// <param name="isInstructor"></param> If the user is an instructor
         public TAChatBox(string username, bool isInstructor)
         {
             _serverTimer = new Timer();
@@ -83,6 +96,10 @@ namespace TeachingAssistantApplication
             uxFriendIP.Text = GetLocalIP();
         }
 
+        /// <summary>
+        /// Gets the IP of this instance and returns it as a string.
+        /// </summary>
+        /// <returns></returns>
         private string GetLocalIP()
         {
             IPHostEntry host;
@@ -98,6 +115,10 @@ namespace TeachingAssistantApplication
             return "127.0.0.1";
         }
 
+        /// <summary>
+        /// Method that retrieves messages sent over the sockets.
+        /// </summary>
+        /// <param name="aResult"></param>
         private void MessageCallBack(IAsyncResult aResult)
         {
             try
@@ -128,6 +149,12 @@ namespace TeachingAssistantApplication
             }
         }
 
+        /// <summary>
+        /// Click event for the start button. Connects the two IPs on the button click and prepares them
+        /// for transfer.
+        /// </summary>
+        /// <param name="sender"></param> Sender of the event
+        /// <param name="e"></param> The event
         private void UxStart_Click(object sender, EventArgs e)
         {
             try
@@ -151,6 +178,11 @@ namespace TeachingAssistantApplication
             }
         }
 
+        /// <summary>
+        /// Question timer ticks every second. Updates the timer label on the interface
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UxQuestionTimer_Tick(object sender, EventArgs e)
         {
             if (m <= 0 && s <= 0)
@@ -170,6 +202,12 @@ namespace TeachingAssistantApplication
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
         }
 
+        /// <summary>
+        /// Server refresh and check on every 10 seconds. Iterates through the database and adds and then deletes to update
+        /// the instructors queue.
+        /// </summary>
+        /// <param name="sender"></param> Sender of the event
+        /// <param name="e"></param> The event
         private async void ServerTimer_Tick(object sender, EventArgs e)
         {
 
@@ -201,6 +239,11 @@ namespace TeachingAssistantApplication
             }
         }
 
+        /// <summary>
+        /// Click event for the disconnect button
+        /// </summary>
+        /// <param name="sender"></param> The sender of the event
+        /// <param name="e"></param> The event
         private void UxDisconnect_Click(object sender, EventArgs e)
         {
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -210,6 +253,12 @@ namespace TeachingAssistantApplication
             uxFriendPort.Clear();
         }
         //Submit button
+
+        /// <summary>
+        /// Click event for the submit button. Adds a new string to construct a new QuestionItem from the cloud.
+        /// </summary>
+        /// <param name="sender"></param> Sender of the event
+        /// <param name="e"></param> The event
         private async void UxSubmit_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -227,6 +276,12 @@ namespace TeachingAssistantApplication
             uxChatBox.Items.Add("-- QUESTION ADDED --");
         }
 
+        /// <summary>
+        /// Click event for the send button. Sends the message to the remoteIP and adds it to the chat box
+        /// on your instance. It then clears the input box.
+        /// </summary>
+        /// <param name="sender"></param> Sender of the event
+        /// <param name="e"></param> The event
         private void UxSend_Click(object sender, EventArgs e)
         {
             try
@@ -252,6 +307,25 @@ namespace TeachingAssistantApplication
             }
         }
 
+        /// <summary>
+        /// Click event for the next question button. Adds a line to indicate a new question and then gets the next question
+        /// in the queue. Sets the labels for the new questions and gets the IP of the next student.
+        /// </summary>
+        /// <param name="sender"></param> Sender of the event
+        /// <param name="e"></param> The event
+        private void UxNextQuestion_Click(object sender, EventArgs e)
+        {
+            uxChatBox.Items.Add("-- NEW QUESTION CONVERSATIONS INITIATED --");
+            _currentQuestion = queue.GetNextQuestion();
+            uxQuestionLabel.Text = "Question: " + _currentQuestion.Question;
+            uxStudentLabel.Text = "Student: " + _currentQuestion.Username;
+            uxFriendIP.Text = _currentQuestion.IP;
+        }
+
+        /// <summary>
+        /// Gets the tag of the current instance dependent on if it is a instructor
+        /// </summary>
+        /// <returns></returns>
         private string GetTag()
         {
             if (_isInstructor)
