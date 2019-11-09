@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TeachingAssistantApplication
 {
+    /// <summary>
+    /// Class that manipulates a queue of QuestionItems
+    /// </summary>
     public class QuestionQueue
     {
+        //Global class assets
+
         private Queue<QuestionItem> _questionQueue = new Queue<QuestionItem>();
         QuestionItem _current = null;
 
+        /// <summary>
+        /// Count of the queue object
+        /// </summary>
         public int Count
         {
             get
@@ -35,15 +44,18 @@ namespace TeachingAssistantApplication
         /// <returns></returns>
         public QuestionItem GetNextQuestion()
         {
-            if(_questionQueue.Count != 0 && _current.Answered == true)
+            if(_questionQueue.Count != 0)
             {
                 _current = _questionQueue.Peek();
                 return _questionQueue.Dequeue();
             }
-            return null;
+            return new QuestionItem("No questions." , "0.00.00.1", "tester");
         }
 
-
+        /// <summary>
+        /// Gets the time aloted for each question.
+        /// </summary>
+        /// <returns></returns>
         public int GetTime()
         {
             int count = _questionQueue.Count;

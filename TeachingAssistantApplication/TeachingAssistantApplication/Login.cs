@@ -35,7 +35,7 @@ namespace TeachingAssistantApplication
         {
             InitializeComponent();
         }
-        
+
         private void Login_Load(object sender, EventArgs e)
         {
             try
@@ -51,11 +51,11 @@ namespace TeachingAssistantApplication
 
         private async void UxLoginButton_Click(object sender, EventArgs e)
         {
-            if(uxUsername.Text == "" && uxPassword.Text == "")
+            if (uxUsername.Text == "" && uxPassword.Text == "")
             {
                 MessageBox.Show("Username and password are empty");
             }
-            else if(uxUsername.Text == "")
+            else if (uxUsername.Text == "")
             {
                 MessageBox.Show("Username is empty.");
             }
@@ -63,13 +63,12 @@ namespace TeachingAssistantApplication
             {
                 MessageBox.Show("Password is empty.");
             }
+            else if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
+            {
+                MessageBox.Show("Please select either instructor or student");
+            }
             else
             {
-                if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
-                {
-                    MessageBox.Show("Please select either instructor or student");
-                }
-
                 if (uxInstructorSelection.Checked)
                 {
                     retrieve = await client.GetAsync("Instructor Information/" + uxUsername.Text);
@@ -79,10 +78,7 @@ namespace TeachingAssistantApplication
                 {
                     retrieve = await client.GetAsync("Student Information/" + uxUsername.Text);
                 }
-                else if (!(uxStudentSelection.Checked || uxInstructorSelection.Checked))
-                {
-                    MessageBox.Show("Please select either instructor or student");
-                }
+
                 //FIX: if user types into textbox and doesnt select it sets null
                 Data userData = retrieve.ResultAs<Data>();
                 var currUser = new Data
@@ -101,14 +97,14 @@ namespace TeachingAssistantApplication
                 else
                 {
                     MessageBox.Show("Username or password not found.");
+                    uxPassword.Clear();
                 }
             }
-
         }
 
         private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(uxInstructorSelection.Checked || uxStudentSelection.Checked )
+            if (uxInstructorSelection.Checked || uxStudentSelection.Checked)
             {
                 if (uxUsername.Text == "")
                 {
@@ -140,11 +136,11 @@ namespace TeachingAssistantApplication
             {
                 SetResponse studResponse = await client.SetAsync("Student Information/" + uxUsername.Text, newUser);
             }
-            else if(uxInstructorSelection.Checked)
+            else if (uxInstructorSelection.Checked)
             {
                 SetResponse instructResponse = await client.SetAsync("Instructor Information/" + uxUsername.Text, newUser);
             }
-            
+
 
         }
 
