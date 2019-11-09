@@ -299,7 +299,7 @@ namespace TeachingAssistantApplication
             uxChatBox.Text = "-- QUESTION ADDED --\n";
             
 
-            uxChatBox.Items.Add("-- QUESTION ADDED --");
+            uxChatBox.Text += ("-- QUESTION ADDED --\n");
         }
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace TeachingAssistantApplication
             Queue<QuestionInformation> userinfo = new Queue<QuestionInformation>();
             userinfo.Enqueue(userData);
             return userinfo;
-
+        }
         /// <summary>
         /// Gets the aloted time for a question.
         /// </summary>

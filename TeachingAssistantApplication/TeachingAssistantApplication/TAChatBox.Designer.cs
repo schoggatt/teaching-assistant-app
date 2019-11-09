@@ -57,10 +57,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.uxChatBox = new LollipopTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.uxDisconnect = new System.Windows.Forms.Button();
-            this.uxLocalBox.SuspendLayout();
-            this.uxRemoteGroup.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -163,7 +159,7 @@
             this.uxDisconnect.Name = "uxDisconnect";
             this.uxDisconnect.Size = new System.Drawing.Size(113, 44);
             this.uxDisconnect.TabIndex = 33;
-            this.uxDisconnect.Text = "Disconnect";
+            this.uxDisconnect.Text = "Disconnect"; 
             // 
             // uxRemoteLabel
             // 
@@ -398,9 +394,6 @@
             this.Controls.Add(this.uxStudentLabel);
             this.Controls.Add(this.uxQuestionText);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.uxRemoteGroup);
-            this.Controls.Add(this.uxLocalBox);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -438,7 +431,6 @@
         private LollipopButton uxSubmit;
         private System.Windows.Forms.PictureBox pictureBox2;
         private LollipopTextBox uxChatBox;
-        private System.Windows.Forms.Button uxDisconnect;
     }
 }
 
