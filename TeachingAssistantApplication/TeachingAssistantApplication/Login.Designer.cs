@@ -45,7 +45,7 @@
             // 
             // uxUsername
             // 
-            this.uxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxUsername.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxUsername.Location = new System.Drawing.Point(107, 240);
             this.uxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uxUsername.Multiline = true;
@@ -102,6 +102,7 @@
             this.uxExit.TabIndex = 7;
             this.uxExit.Text = "Exit";
             this.uxExit.UseVisualStyleBackColor = true;
+            this.uxExit.Click += new System.EventHandler(this.UxExit_Click);
             // 
             // uxUsernameLbl
             // 
@@ -116,7 +117,7 @@
             // 
             // uxPassword
             // 
-            this.uxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxPassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxPassword.Location = new System.Drawing.Point(107, 284);
             this.uxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uxPassword.Multiline = true;
@@ -151,6 +152,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(91, 32);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Location = new System.Drawing.Point(121, 39);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";

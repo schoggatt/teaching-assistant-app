@@ -1,11 +1,11 @@
-﻿namespace TeachingAssistantApplication
+﻿using System.Windows.Forms;
+
+namespace TeachingAssistantApplication
 {
     internal class Data
     {
         public string username { get; set; }
         public string password { get; set; }
-
-        public static string error;
 
         public static bool IsEqual(Data newUser, Data currUser)
         {
@@ -26,5 +26,8 @@
             }
             return true;
         }
+
+        public static string error;
+
     }
 }

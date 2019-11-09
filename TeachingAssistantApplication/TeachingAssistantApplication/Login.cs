@@ -69,6 +69,7 @@ namespace TeachingAssistantApplication
                 {
                     MessageBox.Show("Please select either instructor or student");
                 }
+
                 if (uxInstructorSelection.Checked)
                 {
                     retrieve = await client.GetAsync("Instructor Information/" + uxUsername.Text);
@@ -78,6 +79,11 @@ namespace TeachingAssistantApplication
                 {
                     retrieve = await client.GetAsync("Student Information/" + uxUsername.Text);
                 }
+                else if (!(uxStudentSelection.Checked || uxInstructorSelection.Checked))
+                {
+                    MessageBox.Show("Please select either instructor or student");
+                }
+                //FIX: if user types into textbox and doesnt select it sets null
                 Data userData = retrieve.ResultAs<Data>();
                 var currUser = new Data
                 {
@@ -140,6 +146,11 @@ namespace TeachingAssistantApplication
             }
             
 
+        }
+
+        private void UxExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

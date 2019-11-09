@@ -11,10 +11,23 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+
 namespace TeachingAssistantApplication
 {
     public partial class TAChatBox : Form
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "EoEWF8RsVsBlIsKE4JqcfloXeqEndWKJVKxlBM7p",
+            BasePath = "https://hack2019-ad4f4.firebaseio.com/"
+        };
+
+
+        IFirebaseClient client;
+
         Socket sck;
         EndPoint epLocal, epRemote;
         byte[] buffer;
@@ -40,6 +53,16 @@ namespace TeachingAssistantApplication
             uxQuestionCount.Text += queue.Count.ToString();
             uxRecommended.Text += queue.GetTime();
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
+
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+            }
+            catch
+            {
+                MessageBox.Show("Connection Problem");
+            }
+
 
             IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
 
@@ -160,9 +183,18 @@ namespace TeachingAssistantApplication
         }
 
         //Submit button
-        private void UxSubmit_Click(object sender, EventArgs e)
+        private async void UxSubmit_Click(object sender, EventArgs e)
         {
-            
+            //Get: _username " " IP " " Question
+            var questionInfo = new QuestionInformation
+            {
+                IP = GetLocalIP(),
+                question = uxInputQuestion.Text
+            };
+
+            SetResponse queueInfo = await client.SetAsync("Question Information/" + _username, questionInfo);
+
+            uxChatBox.Items.Add("-- QUESTION ADDED --");
         }
 
         private void UxSend_Click(object sender, EventArgs e)
