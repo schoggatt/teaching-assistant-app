@@ -76,7 +76,7 @@ namespace TeachingAssistantApplication
             {
                 this.Hide();
                 _username = userData.username;
-                UserInterface TA = new UserInterface(_username);
+                UserInterface TA = new UserInterface(_username, _IsInstructor);
                 TA.ShowDialog();
                 this.Close();
             }
