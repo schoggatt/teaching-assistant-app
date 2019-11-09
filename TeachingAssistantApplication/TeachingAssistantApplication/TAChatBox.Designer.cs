@@ -57,6 +57,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.uxChatBox = new LollipopTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.uxDisconnect = new System.Windows.Forms.Button();
+            this.uxLocalBox.SuspendLayout();
+            this.uxRemoteGroup.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -229,6 +233,14 @@
             this.uxLocalPort.TabIndex = 4;
             this.uxLocalPort.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxLocalPort.UseSystemPasswordChar = false;
+            this.uxStudentLabel.AutoSize = true;
+            this.uxStudentLabel.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxStudentLabel.Location = new System.Drawing.Point(284, 135);
+            this.uxStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.uxStudentLabel.Name = "uxStudentLabel";
+            this.uxStudentLabel.Size = new System.Drawing.Size(55, 13);
+            this.uxStudentLabel.TabIndex = 18;
+            this.uxStudentLabel.Text = "Student:";
             // 
             // uxLocalIP
             // 
@@ -256,6 +268,14 @@
             this.uxChatLabel.Size = new System.Drawing.Size(54, 20);
             this.uxChatLabel.TabIndex = 30;
             this.uxChatLabel.Text = "Chat: ";
+            this.uxQuestionLabel.AutoSize = true;
+            this.uxQuestionLabel.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxQuestionLabel.Location = new System.Drawing.Point(284, 156);
+            this.uxQuestionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.uxQuestionLabel.Name = "uxQuestionLabel";
+            this.uxQuestionLabel.Size = new System.Drawing.Size(61, 13);
+            this.uxQuestionLabel.TabIndex = 19;
+            this.uxQuestionLabel.Text = "Question:";
             // 
             // uxInputQuestion
             // 
@@ -378,6 +398,9 @@
             this.Controls.Add(this.uxStudentLabel);
             this.Controls.Add(this.uxQuestionText);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.uxRemoteGroup);
+            this.Controls.Add(this.uxLocalBox);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -415,6 +438,7 @@
         private LollipopButton uxSubmit;
         private System.Windows.Forms.PictureBox pictureBox2;
         private LollipopTextBox uxChatBox;
+        private System.Windows.Forms.Button uxDisconnect;
     }
 }
 
