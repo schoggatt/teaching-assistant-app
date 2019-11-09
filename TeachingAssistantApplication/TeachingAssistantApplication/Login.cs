@@ -112,7 +112,7 @@ namespace TeachingAssistantApplication
             }
         }
 
-        private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void UxRegisterLink_Clicked(object sender, EventArgs e)
         {
             if (uxInstructorSelection.Checked || uxStudentSelection.Checked)
             {
@@ -158,5 +158,7 @@ namespace TeachingAssistantApplication
         {
             Application.Exit();
         }
+
+        
     }
 }

@@ -73,6 +73,7 @@
             this.uxRegisterLink.Size = new System.Drawing.Size(143, 41);
             this.uxRegisterLink.TabIndex = 22;
             this.uxRegisterLink.Text = "Register";
+            this.uxRegisterLink.Click += new System.EventHandler(this.UxRegisterLink_Clicked);
             // 
             // uxExit
             // 
@@ -84,6 +85,7 @@
             this.uxExit.Size = new System.Drawing.Size(143, 41);
             this.uxExit.TabIndex = 21;
             this.uxExit.Text = "Exit";
+            this.uxExit.Click += new System.EventHandler(this.UxExit_Click);
             // 
             // uxLogin
             // 
@@ -95,6 +97,7 @@
             this.uxLogin.Size = new System.Drawing.Size(143, 41);
             this.uxLogin.TabIndex = 20;
             this.uxLogin.Text = "Login";
+            this.uxLogin.Click += new System.EventHandler(this.UxLoginButton_Click);
             // 
             // uxPassword
             // 
@@ -109,7 +112,7 @@
             this.uxPassword.Size = new System.Drawing.Size(267, 24);
             this.uxPassword.TabIndex = 18;
             this.uxPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.uxPassword.UseSystemPasswordChar = false;
+            this.uxPassword.UseSystemPasswordChar = true;
             // 
             // uxUsername
             // 
@@ -132,7 +135,7 @@
             this.uxPasswordLbl.BackColor = System.Drawing.Color.Transparent;
             this.uxPasswordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxPasswordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxPasswordLbl.Location = new System.Drawing.Point(15, 324);
+            this.uxPasswordLbl.Location = new System.Drawing.Point(12, 324);
             this.uxPasswordLbl.Name = "uxPasswordLbl";
             this.uxPasswordLbl.Size = new System.Drawing.Size(88, 20);
             this.uxPasswordLbl.TabIndex = 16;
@@ -144,7 +147,7 @@
             this.uxUsernameLbl.BackColor = System.Drawing.Color.Transparent;
             this.uxUsernameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxUsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxUsernameLbl.Location = new System.Drawing.Point(15, 280);
+            this.uxUsernameLbl.Location = new System.Drawing.Point(12, 280);
             this.uxUsernameLbl.Name = "uxUsernameLbl";
             this.uxUsernameLbl.Size = new System.Drawing.Size(91, 20);
             this.uxUsernameLbl.TabIndex = 15;
@@ -209,9 +212,9 @@
         private LollipopLabel uxUsernameLbl;
         private LollipopLabel uxPasswordLbl;
         private LollipopTextBox uxUsername;
-        private LollipopTextBox uxPassword;
         private LollipopButton uxLogin;
         private LollipopButton uxExit;
         private LollipopButton uxRegisterLink;
+        private LollipopTextBox uxPassword;
     }
 }
