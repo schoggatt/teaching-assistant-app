@@ -80,7 +80,7 @@ namespace TeachingAssistantApplication
                     ListBox.CheckForIllegalCrossThreadCalls = false;
                     this.uxChatBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        uxChatBox.Items.Add(_username + ": " + receivedMessage);
+                        uxChatBox.Items.Add(receivedMessage);
                     }));
                     
                 }
@@ -157,7 +157,7 @@ namespace TeachingAssistantApplication
             {
                 ASCIIEncoding enc = new ASCIIEncoding();
                 byte[] msg = new byte[1500];
-                msg = enc.GetBytes(uxInputBox.Text);
+                msg = enc.GetBytes(_username + ": " + uxInputBox.Text);
 
                 sck.Send(msg);
                 uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
