@@ -169,12 +169,18 @@ namespace TeachingAssistantApplication
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
         }
 
-        private void ServerTimer_Tick(object sender, EventArgs e)
+        private async void ServerTimer_Tick(object sender, EventArgs e)
         {
+
             //Iterate through the questions database from top to bottom
             //For each question branch make a new question
             //Add it to the teacher queue
             //Delete the branch
+
+            
+
+            FirebaseResponse response = await client.DeleteAsync("Question/" + _username);
+            QuestionInformation userData = response.ResultAs<QuestionInformation>();
 
             //Once empty upload that queue to the cloud
 
@@ -200,7 +206,6 @@ namespace TeachingAssistantApplication
         //Submit button
         private async void UxSubmit_Click(object sender, EventArgs e)
         {
-            //Get: _username " " IP " " Question
             var questionInfo = new QuestionInformation
             {
                 IP = GetLocalIP(),
