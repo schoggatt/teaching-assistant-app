@@ -61,7 +61,7 @@ namespace TeachingAssistantApplication
             int count = _questionQueue.Count;
             if(count == 0)
             {
-                return 0;
+                return 1500000;
             }
             return (60 * 60 * 1000 * 2) / count;
         }

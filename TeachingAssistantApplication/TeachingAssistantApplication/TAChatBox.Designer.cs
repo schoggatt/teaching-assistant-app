@@ -178,9 +178,9 @@
             this.uxRecommended.AutoSize = true;
             this.uxRecommended.Location = new System.Drawing.Point(6, 35);
             this.uxRecommended.Name = "uxRecommended";
-            this.uxRecommended.Size = new System.Drawing.Size(152, 17);
+            this.uxRecommended.Size = new System.Drawing.Size(104, 17);
             this.uxRecommended.TabIndex = 16;
-            this.uxRecommended.Text = "Recommended Time: ";
+            this.uxRecommended.Text = "Time Limit: ";
             // 
             // uxQuestionCount
             // 
