@@ -28,6 +28,7 @@ namespace TeachingAssistantApplication
 
         IFirebaseClient client;
 
+
         Socket sck;
         EndPoint epLocal, epRemote;
         byte[] buffer;
@@ -177,20 +178,26 @@ namespace TeachingAssistantApplication
             //Add it to the teacher queue
             //Delete the branch
 
-            
+            FirebaseResponse retrieve = await client.GetAsync("Question Information/" + _username);
+            QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
 
-            FirebaseResponse response = await client.DeleteAsync("Question/" + _username);
-            QuestionInformation userData = response.ResultAs<QuestionInformation>();
 
             //Once empty upload that queue to the cloud
 
-            if (_isInstructor)
+            if (_isInstructor && userData.Count > 0)
             {
-
+                while(userData.Count > 0)
+                {
+                    queue.AddQuestion(userData.question, userData.IP, userData.username);
+                    uxQuestionCount.Text = queue.Count.ToString();
+                    FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
+                    userData.Count--;
+                }
             }
-            else
+            else if(!_isInstructor)
             {
                 // queue = queue stored in the cloud
+                MessageBox.Show("Not Instructor");
             }
         }
 
@@ -202,15 +209,18 @@ namespace TeachingAssistantApplication
             uxFriendIP.Clear();
             uxFriendPort.Clear();
         }
-
         //Submit button
         private async void UxSubmit_Click(object sender, EventArgs e)
         {
+            int count = 0;
             var questionInfo = new QuestionInformation
             {
+                username = _username,
                 IP = GetLocalIP(),
-                question = uxInputQuestion.Text
+                question = uxInputQuestion.Text,
+                Count = count + 1
             };
+
 
             SetResponse queueInfo = await client.SetAsync("Question Information/" + _username, questionInfo);
 
