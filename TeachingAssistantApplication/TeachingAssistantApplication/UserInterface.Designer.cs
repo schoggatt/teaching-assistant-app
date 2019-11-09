@@ -41,11 +41,11 @@
             this.uxInputBox = new System.Windows.Forms.TextBox();
             this.uxStart = new System.Windows.Forms.Button();
             this.uxSend = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uxQuestionCount = new System.Windows.Forms.Label();
             this.uxRecommended = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.uxTimer = new System.Windows.Forms.Label();
+            this.uxQuestionTimer = new System.Windows.Forms.Timer(this.components);
             this.uxLocalBox.SuspendLayout();
             this.uxRemoteGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,7 +127,7 @@
             // 
             // uxInputBox
             // 
-            this.uxInputBox.Location = new System.Drawing.Point(12, 636);
+            this.uxInputBox.Location = new System.Drawing.Point(12, 650);
             this.uxInputBox.Name = "uxInputBox";
             this.uxInputBox.Size = new System.Drawing.Size(522, 22);
             this.uxInputBox.TabIndex = 11;
@@ -151,13 +151,6 @@
             this.uxSend.Text = "Send";
             this.uxSend.UseVisualStyleBackColor = true;
             this.uxSend.Click += new System.EventHandler(this.UxSend_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 664);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(522, 22);
-            this.textBox1.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -188,23 +181,27 @@
             this.uxRecommended.TabIndex = 16;
             this.uxRecommended.Text = "Recommended Time: ";
             // 
-            // label4
+            // uxTimer
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(537, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 17);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Timer:";
+            this.uxTimer.AutoSize = true;
+            this.uxTimer.Location = new System.Drawing.Point(537, 69);
+            this.uxTimer.Name = "uxTimer";
+            this.uxTimer.Size = new System.Drawing.Size(48, 17);
+            this.uxTimer.TabIndex = 17;
+            this.uxTimer.Text = "Timer:";
+            // 
+            // uxQuestionTimer
+            // 
+            this.uxQuestionTimer.Interval = 1000;
+            this.uxQuestionTimer.Tick += new System.EventHandler(this.UxQuestionTimer_Tick);
             // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 691);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(674, 691);
+            this.Controls.Add(this.uxTimer);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.uxSend);
             this.Controls.Add(this.uxStart);
             this.Controls.Add(this.uxInputBox);
@@ -239,11 +236,11 @@
         private System.Windows.Forms.TextBox uxInputBox;
         private System.Windows.Forms.Button uxStart;
         private System.Windows.Forms.Button uxSend;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label uxRecommended;
         private System.Windows.Forms.Label uxQuestionCount;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label uxTimer;
+        private System.Windows.Forms.Timer uxQuestionTimer;
     }
 }
 

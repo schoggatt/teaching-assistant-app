@@ -26,11 +26,11 @@ namespace TeachingAssistantApplication
         private void AddQuestion(string question)
         {
             QuestionItem newQuestion = new QuestionItem(question);
-            _questionQueue.Enqueue(newQuestion);
             if(_questionQueue.Count == 0)
             {
                 _current = newQuestion;
             }
+            _questionQueue.Enqueue(newQuestion);
         }
 
         /// <summary>

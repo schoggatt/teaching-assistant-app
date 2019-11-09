@@ -17,12 +17,18 @@ namespace TeachingAssistantApplication
     {
         Socket sck;
         EndPoint epLocal, epRemote;
+        QuestionQueue queue;
+
+        int m = 1;
+        int s = 5;
         public UserInterface()
         {
-            QuestionQueue queue = new QuestionQueue();
+            queue = new QuestionQueue();
             InitializeComponent();
             uxQuestionCount.Text += queue.Count.ToString();
             uxRecommended.Text += queue.GetTime();
+            uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
+            uxQuestionTimer.Enabled = true;
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -96,6 +102,25 @@ namespace TeachingAssistantApplication
             }
         }
 
+        private void UxQuestionTimer_Tick(object sender, EventArgs e)
+        {
+            if(s == 0)
+            {
+                m--;
+                s = 60;
+            }
+            if (m <= 0 && s <= 0)
+            {
+                uxQuestionCount.Enabled = false;
+                MessageBox.Show("Timer is done.");
+            }
+            else
+            {
+                s--;
+            }
+            uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
+        }
+
         private void UxSend_Click(object sender, EventArgs e)
         {
             try
@@ -113,5 +138,7 @@ namespace TeachingAssistantApplication
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
     }
 }
