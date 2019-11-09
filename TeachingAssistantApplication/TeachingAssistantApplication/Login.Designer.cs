@@ -45,7 +45,7 @@
             // 
             // uxUsername
             // 
-            this.uxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxUsername.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxUsername.Location = new System.Drawing.Point(107, 240);
             this.uxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uxUsername.Multiline = true;
@@ -116,7 +116,7 @@
             // 
             // uxPassword
             // 
-            this.uxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxPassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxPassword.Location = new System.Drawing.Point(107, 284);
             this.uxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uxPassword.Multiline = true;
