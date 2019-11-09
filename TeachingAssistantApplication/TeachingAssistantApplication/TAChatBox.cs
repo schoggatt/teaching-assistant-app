@@ -41,6 +41,7 @@ namespace TeachingAssistantApplication
         int s = 0;
         public TAChatBox(string username, bool isInstructor)
         {
+            _serverTimer = new Timer();
             _serverTimer.Enabled = true;
             _serverTimer.Interval = 10000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
@@ -170,7 +171,21 @@ namespace TeachingAssistantApplication
 
         private void ServerTimer_Tick(object sender, EventArgs e)
         {
+            //Iterate through the questions database from top to bottom
+            //For each question branch make a new question
+            //Add it to the teacher queue
+            //Delete the branch
 
+            //Once empty upload that queue to the cloud
+
+            if (_isInstructor)
+            {
+
+            }
+            else
+            {
+                // queue = queue stored in the cloud
+            }
         }
 
         private void UxDisconnect_Click(object sender, EventArgs e)

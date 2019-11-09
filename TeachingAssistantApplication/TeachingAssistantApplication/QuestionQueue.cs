@@ -23,13 +23,9 @@ namespace TeachingAssistantApplication
         /// Adds a new question to the queue
         /// </summary>
         /// <param name="question"></param> String to create new question object
-        public void AddQuestion(string question)
+        public void AddQuestion(string question, string ip, string username)
         {
-            QuestionItem newQuestion = new QuestionItem(question);
-            if(_questionQueue.Count == 0)
-            {
-                _current = newQuestion;
-            }
+            QuestionItem newQuestion = new QuestionItem(question, ip, username);
             _questionQueue.Enqueue(newQuestion);
         }
 
