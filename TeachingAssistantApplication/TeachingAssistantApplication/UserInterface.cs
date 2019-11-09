@@ -159,7 +159,7 @@ namespace TeachingAssistantApplication
             {
                 ASCIIEncoding enc = new ASCIIEncoding();
                 byte[] msg = new byte[1500];
-                msg = enc.GetBytes(_username + ": " + uxInputBox.Text);
+                msg = enc.GetBytes(GetTag() + _username + ": " + uxInputBox.Text);
 
                 sck.Send(msg);
                 if(uxInputBox.Text != "")
