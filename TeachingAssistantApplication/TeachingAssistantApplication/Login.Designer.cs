@@ -40,13 +40,15 @@
             this.uxUsernameLbl = new LollipopLabel();
             this.uxStudentSelection = new LollipopRadioButton();
             this.uxInstructorSelection = new LollipopRadioButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // uxErrorLabel
             // 
             this.uxErrorLabel.AutoSize = true;
-            this.uxErrorLabel.Location = new System.Drawing.Point(200, 375);
+            this.uxErrorLabel.Location = new System.Drawing.Point(199, 356);
             this.uxErrorLabel.Name = "uxErrorLabel";
             this.uxErrorLabel.Size = new System.Drawing.Size(0, 17);
             this.uxErrorLabel.TabIndex = 12;
@@ -55,7 +57,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(124, 82);
+            this.pictureBox1.Location = new System.Drawing.Point(123, 63);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(164, 130);
@@ -68,7 +70,7 @@
             this.uxRegisterLink.BackColor = System.Drawing.Color.Transparent;
             this.uxRegisterLink.BGColor = "#ff0033";
             this.uxRegisterLink.FontColor = "#ffffff";
-            this.uxRegisterLink.Location = new System.Drawing.Point(145, 422);
+            this.uxRegisterLink.Location = new System.Drawing.Point(144, 403);
             this.uxRegisterLink.Name = "uxRegisterLink";
             this.uxRegisterLink.Size = new System.Drawing.Size(143, 41);
             this.uxRegisterLink.TabIndex = 22;
@@ -80,7 +82,7 @@
             this.uxExit.BackColor = System.Drawing.Color.Transparent;
             this.uxExit.BGColor = "#ff0033";
             this.uxExit.FontColor = "#ffffff";
-            this.uxExit.Location = new System.Drawing.Point(224, 375);
+            this.uxExit.Location = new System.Drawing.Point(223, 356);
             this.uxExit.Name = "uxExit";
             this.uxExit.Size = new System.Drawing.Size(143, 41);
             this.uxExit.TabIndex = 21;
@@ -92,7 +94,7 @@
             this.uxLogin.BackColor = System.Drawing.Color.Transparent;
             this.uxLogin.BGColor = "#ff0033";
             this.uxLogin.FontColor = "#ffffff";
-            this.uxLogin.Location = new System.Drawing.Point(67, 375);
+            this.uxLogin.Location = new System.Drawing.Point(66, 356);
             this.uxLogin.Name = "uxLogin";
             this.uxLogin.Size = new System.Drawing.Size(143, 41);
             this.uxLogin.TabIndex = 20;
@@ -104,7 +106,7 @@
             this.uxPassword.FocusedColor = "#ff0033";
             this.uxPassword.FontColor = "#999999";
             this.uxPassword.IsEnabled = true;
-            this.uxPassword.Location = new System.Drawing.Point(110, 322);
+            this.uxPassword.Location = new System.Drawing.Point(109, 303);
             this.uxPassword.MaxLength = 32767;
             this.uxPassword.Multiline = false;
             this.uxPassword.Name = "uxPassword";
@@ -119,7 +121,7 @@
             this.uxUsername.FocusedColor = "#ff0033";
             this.uxUsername.FontColor = "#999999";
             this.uxUsername.IsEnabled = true;
-            this.uxUsername.Location = new System.Drawing.Point(110, 280);
+            this.uxUsername.Location = new System.Drawing.Point(109, 261);
             this.uxUsername.MaxLength = 32767;
             this.uxUsername.Multiline = false;
             this.uxUsername.Name = "uxUsername";
@@ -135,7 +137,7 @@
             this.uxPasswordLbl.BackColor = System.Drawing.Color.Transparent;
             this.uxPasswordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxPasswordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxPasswordLbl.Location = new System.Drawing.Point(12, 324);
+            this.uxPasswordLbl.Location = new System.Drawing.Point(11, 305);
             this.uxPasswordLbl.Name = "uxPasswordLbl";
             this.uxPasswordLbl.Size = new System.Drawing.Size(88, 20);
             this.uxPasswordLbl.TabIndex = 16;
@@ -147,7 +149,7 @@
             this.uxUsernameLbl.BackColor = System.Drawing.Color.Transparent;
             this.uxUsernameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxUsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxUsernameLbl.Location = new System.Drawing.Point(12, 280);
+            this.uxUsernameLbl.Location = new System.Drawing.Point(11, 261);
             this.uxUsernameLbl.Name = "uxUsernameLbl";
             this.uxUsernameLbl.Size = new System.Drawing.Size(91, 20);
             this.uxUsernameLbl.TabIndex = 15;
@@ -157,7 +159,7 @@
             // 
             this.uxStudentSelection.AutoSize = true;
             this.uxStudentSelection.CheckColor = "#ff0033";
-            this.uxStudentSelection.Location = new System.Drawing.Point(224, 231);
+            this.uxStudentSelection.Location = new System.Drawing.Point(223, 212);
             this.uxStudentSelection.Name = "uxStudentSelection";
             this.uxStudentSelection.Size = new System.Drawing.Size(85, 19);
             this.uxStudentSelection.TabIndex = 14;
@@ -169,7 +171,7 @@
             // 
             this.uxInstructorSelection.AutoSize = true;
             this.uxInstructorSelection.CheckColor = "#ff0033";
-            this.uxInstructorSelection.Location = new System.Drawing.Point(110, 231);
+            this.uxInstructorSelection.Location = new System.Drawing.Point(109, 212);
             this.uxInstructorSelection.Name = "uxInstructorSelection";
             this.uxInstructorSelection.Size = new System.Drawing.Size(100, 19);
             this.uxInstructorSelection.TabIndex = 13;
@@ -177,11 +179,21 @@
             this.uxInstructorSelection.Text = "Instructor";
             this.uxInstructorSelection.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(416, 111);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 23;
+            this.pictureBox2.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 486);
+            this.ClientSize = new System.Drawing.Size(413, 468);
             this.Controls.Add(this.uxRegisterLink);
             this.Controls.Add(this.uxExit);
             this.Controls.Add(this.uxLogin);
@@ -193,12 +205,15 @@
             this.Controls.Add(this.uxInstructorSelection);
             this.Controls.Add(this.uxErrorLabel);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
+            this.Sizable = false;
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +231,6 @@
         private LollipopButton uxExit;
         private LollipopButton uxRegisterLink;
         private LollipopTextBox uxPassword;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
