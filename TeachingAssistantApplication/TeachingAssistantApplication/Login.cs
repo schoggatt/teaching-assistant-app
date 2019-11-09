@@ -51,11 +51,8 @@ namespace TeachingAssistantApplication
 
         private async void UxLoginButton_Click(object sender, EventArgs e)
         {
-            if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
-            {
-                MessageBox.Show("Please select either Instructor or Student");
-            }
-
+            
+            FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
             if (uxInstructorSelection.Checked)
             {
                 retrieve = await client.GetAsync("Instructor Information/" + uxLogin.Text);
@@ -65,27 +62,28 @@ namespace TeachingAssistantApplication
             {
                 retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
             }
-            
             Data userData = retrieve.ResultAs<Data>();
             var currUser = new Data
             {
                 username = uxLogin.Text.Trim(),
                 password = uxPassword.Text.Trim()
             };
-
-            if (Data.IsEqual(currUser, userData))
+            if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
+            {
+                MessageBox.Show("Please select either instructor or student");
+            }
+            else if (Data.IsEqual(currUser, userData))
             {
                 this.Hide();
                 _username = userData.username;
                 UserInterface TA = new UserInterface(_username);
                 TA.ShowDialog();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Error: " + Data.error);
+                MessageBox.Show("Username or password not found.");
             }
-            
-            
         }
 
         private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
