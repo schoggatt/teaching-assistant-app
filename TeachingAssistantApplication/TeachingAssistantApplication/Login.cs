@@ -27,17 +27,6 @@ namespace TeachingAssistantApplication
 
         public string _username;
 
-        //Do i need this?
-        public string _password;
-
-        public string Username
-        {
-            get
-            {
-                return _username;
-            }
-        }
-
         public Login()
         {
             InitializeComponent();
@@ -45,38 +34,73 @@ namespace TeachingAssistantApplication
         
         private void Login_Load(object sender, EventArgs e)
         {
-            client = new FireSharp.FirebaseClient(config);
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+            }
+            catch
+            {
+                MessageBox.Show("Connection Problem");
+            }
 
-            if (client != null)
-            {
-                MessageBox.Show("Connected");
-            }
-            else if (client == null)
-            {
-                MessageBox.Show("Empty");
-            }
-            else
-            {
-                MessageBox.Show("else");
-            }
         }
 
         private async void UxLoginButton_Click(object sender, EventArgs e)
         {
-            var data = new Data
+
+            FirebaseResponse retrieve = await client.GetAsync("Login Information/" + uxLogin.Text);
+            Data obj = retrieve.ResultAs<Data>();
+            var currUser = new Data
             {
                 username = uxLogin.Text,
                 password = uxPassword.Text
             };
 
-            SetResponse response = await client.SetAsync("Login Information/" + uxLogin.Text, data);
+            if(Data.IsEqual(currUser, obj))
+            { 
+                _username = obj.username;
+                UserInterface TA = new UserInterface(_username);
+                TA.ShowDialog();
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Error: " + Data.error);
+            }
+            
+        }
 
-            FirebaseResponse retrieve = await client.GetAsync("Login Information/" + uxLogin.Text);
-            Data obj = retrieve.ResultAs<Data>();
+        private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(uxInstructorSelection.Checked || uxStudentSelection.Checked )
+            {
+                if (uxLogin.Text == "")
+                {
+                    MessageBox.Show("Please enter a username");
+                }
+                else if (uxPassword.Text == "")
+                {
+                    MessageBox.Show("Please enter a password");
+                }
+                else if (uxLogin.Text == "" && uxPassword.Text == "")
+                {
+                    MessageBox.Show("Please enter a username and a password");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please pick Instructor or Student");
+            }
 
-            //Retrieves the username from firebase and sets it to the global variable
-            _username = obj.username;
+            //Add a lot more cases to check
 
+            var newUser = new Data
+            {
+                username = uxLogin.Text,
+                password = uxPassword.Text
+            };
+
+            SetResponse response = await client.SetAsync("Login Information/" + uxLogin.Text, newUser);
 
         }
     }
