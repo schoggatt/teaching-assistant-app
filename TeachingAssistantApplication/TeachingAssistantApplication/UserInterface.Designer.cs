@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInterface));
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uxLocalBox = new System.Windows.Forms.GroupBox();
@@ -280,6 +281,7 @@
             this.Controls.Add(this.uxRemoteGroup);
             this.Controls.Add(this.uxLocalBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserInterface";
             this.Text = "Quick Question";
             this.uxLocalBox.ResumeLayout(false);
