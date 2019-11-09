@@ -102,6 +102,7 @@
             this.uxExit.TabIndex = 7;
             this.uxExit.Text = "Exit";
             this.uxExit.UseVisualStyleBackColor = true;
+            this.uxExit.Click += new System.EventHandler(this.UxExit_Click);
             // 
             // uxUsernameLbl
             // 
@@ -151,6 +152,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(91, 32);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Location = new System.Drawing.Point(121, 39);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";

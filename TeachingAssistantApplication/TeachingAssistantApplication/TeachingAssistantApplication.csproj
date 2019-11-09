@@ -87,6 +87,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuestionInformation.cs" />
     <Compile Include="QuestionItem.cs" />
     <Compile Include="QuestionQueue.cs" />
     <Compile Include="TAChatBox.cs">
