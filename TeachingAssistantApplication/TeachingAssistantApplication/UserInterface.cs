@@ -28,6 +28,7 @@ namespace TeachingAssistantApplication
             uxQuestionCount.Text += queue.Count.ToString();
             uxRecommended.Text += queue.GetTime();
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
+            Console.WriteLine("Test");
             uxQuestionTimer.Enabled = true;
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
