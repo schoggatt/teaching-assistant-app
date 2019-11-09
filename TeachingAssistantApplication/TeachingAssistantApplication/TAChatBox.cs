@@ -57,7 +57,7 @@ namespace TeachingAssistantApplication
         {
             _serverTimer = new Timer();
             _serverTimer.Enabled = true;
-            _serverTimer.Interval = 10000;
+            _serverTimer.Interval = 15000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
 
 
@@ -77,7 +77,6 @@ namespace TeachingAssistantApplication
             {
                 MessageBox.Show("Connection Problem");
             }
-
 
             IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
 
@@ -216,27 +215,50 @@ namespace TeachingAssistantApplication
             //Add it to the teacher queue
             //Delete the branch
 
+            string usern;
+            string ip;
+            string question;
+
             FirebaseResponse retrieve = await client.GetAsync("Question Information/" + _username);
             QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
 
 
+            //Call a helper to get all of the student usernames and place each one in a queue
+            Queue<QuestionInformation> usernames = GetUser(userData.username);
+            Queue<string> questions = new Queue<string>();
+            //Iterate through the queue for each username
+            
+
             //Once empty upload that queue to the cloud
 
-            if (_isInstructor && userData.Count > 0)
+            if (_isInstructor && userData.Count > 0 || userData != null)
             {
-                while(userData.Count > 0)
+                while (usernames.Count > 0)
                 {
-                    queue.AddQuestion(userData.question, userData.IP, userData.username);
-                    uxQuestionCount.Text = queue.Count.ToString();
-                    FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
-                    userData.Count--;
+                    QuestionInformation user = usernames.Dequeue();
+                    if (user.question == String.Empty)
+                    {
+                        usernames.Dequeue();
+                    }
+                    else
+                    {
+                        questions.Enqueue(user.question);
+                    }
                 }
+                queue.AddQuestion(questions.Dequeue(), userData.IP, userData.username);
+                uxQuestionCount.Text = queue.Count.ToString();
+                FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
+                userData.Count--;
             }
             else if(!_isInstructor)
             {
                 // queue = queue stored in the cloud
-                MessageBox.Show("Not Instructor");
             }
+
+
+
+            
+
         }
 
         /// <summary>
@@ -267,11 +289,13 @@ namespace TeachingAssistantApplication
                 username = _username,
                 IP = GetLocalIP(),
                 question = uxInputQuestion.Text,
-                Count = count + 1
+                Count = count++
             };
 
 
             SetResponse queueInfo = await client.SetAsync("Question Information/" + _username, questionInfo);
+
+            
 
             uxChatBox.Items.Add("-- QUESTION ADDED --");
         }
@@ -333,6 +357,15 @@ namespace TeachingAssistantApplication
                 return "[Teaching Assisant] -- ";
             }
             return "[Student] -- ";
+        }
+
+        private Queue<QuestionInformation> GetUser(string username)
+        {
+            FirebaseResponse retrieve = client.Get("Question Information/" + username);
+            QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
+            Queue<QuestionInformation> userinfo = new Queue<QuestionInformation>();
+            userinfo.Enqueue(userData);
+            return userinfo;
         }
     }
 }
