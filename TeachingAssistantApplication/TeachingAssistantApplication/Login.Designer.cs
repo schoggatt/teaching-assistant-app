@@ -65,13 +65,14 @@
             // 
             // uxLogin
             // 
+            this.uxLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.uxLogin.Depth = 0;
             this.uxLogin.Icon = null;
             this.uxLogin.Location = new System.Drawing.Point(85, 337);
             this.uxLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.uxLogin.Name = "uxLogin";
             this.uxLogin.Primary = true;
-            this.uxLogin.Size = new System.Drawing.Size(129, 49);
+            this.uxLogin.Size = new System.Drawing.Size(112, 50);
             this.uxLogin.TabIndex = 19;
             this.uxLogin.Text = "Login";
             this.uxLogin.UseVisualStyleBackColor = true;
@@ -82,11 +83,11 @@
             this.uxExit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.uxExit.Depth = 0;
             this.uxExit.Icon = null;
-            this.uxExit.Location = new System.Drawing.Point(220, 337);
+            this.uxExit.Location = new System.Drawing.Point(203, 337);
             this.uxExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.uxExit.Name = "uxExit";
             this.uxExit.Primary = true;
-            this.uxExit.Size = new System.Drawing.Size(129, 49);
+            this.uxExit.Size = new System.Drawing.Size(105, 50);
             this.uxExit.TabIndex = 20;
             this.uxExit.Text = "Exit";
             this.uxExit.UseVisualStyleBackColor = true;
@@ -176,7 +177,7 @@
             this.uxRegisterLink.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.uxRegisterLink.Depth = 0;
             this.uxRegisterLink.Icon = null;
-            this.uxRegisterLink.Location = new System.Drawing.Point(168, 412);
+            this.uxRegisterLink.Location = new System.Drawing.Point(145, 402);
             this.uxRegisterLink.MouseState = MaterialSkin.MouseState.HOVER;
             this.uxRegisterLink.Name = "uxRegisterLink";
             this.uxRegisterLink.Primary = true;
