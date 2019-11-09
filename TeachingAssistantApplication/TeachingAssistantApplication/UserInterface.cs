@@ -105,7 +105,6 @@ namespace TeachingAssistantApplication
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-                uxStart.Enabled = false;
                 uxChatBox.Items.Add("-- CONNECTED --");
                 uxSend.Enabled = true;
                 uxInputBox.Focus();
