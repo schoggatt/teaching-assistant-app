@@ -56,9 +56,9 @@ namespace TeachingAssistantApplication
             IPHostEntry host;
             host = Dns.GetHostEntry(Dns.GetHostName());
 
-            foreach(IPAddress ip in host.AddressList)
+            foreach (IPAddress ip in host.AddressList)
             {
-                if(ip.AddressFamily == AddressFamily.InterNetwork)
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
                     return ip.ToString();
                 }
@@ -71,7 +71,7 @@ namespace TeachingAssistantApplication
             try
             {
                 int size = sck.EndReceiveFrom(aResult, ref epRemote);
-                if(size > 0)
+                if (size > 0)
                 {
                     byte[] receivedData = new byte[1500];
                     receivedData = (byte[])aResult.AsyncState;
@@ -79,18 +79,18 @@ namespace TeachingAssistantApplication
                     ASCIIEncoding eEncoding = new ASCIIEncoding();
                     string receivedMessage = eEncoding.GetString(receivedData);
 
+
                     ListBox.CheckForIllegalCrossThreadCalls = false;
                     this.uxChatBox.Invoke(new MethodInvoker(delegate ()
                     {
                         uxChatBox.Items.Add(receivedMessage);
                     }));
-                    
                 }
 
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -113,7 +113,7 @@ namespace TeachingAssistantApplication
                 uxSend.Enabled = true;
                 uxInputBox.Focus();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -150,7 +150,7 @@ namespace TeachingAssistantApplication
         //Submit button
         private void UxSubmit_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void UxSend_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace TeachingAssistantApplication
                 msg = enc.GetBytes(GetTag() + _username + ": " + uxInputBox.Text);
 
                 sck.Send(msg);
-                if(uxInputBox.Text != "")
+                if (uxInputBox.Text != "")
                 {
                     uxChatBox.Items.Add(GetTag() + _username + ": " + uxInputBox.Text);
                 }
