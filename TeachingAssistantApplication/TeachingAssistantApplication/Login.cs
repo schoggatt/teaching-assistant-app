@@ -16,6 +16,9 @@ namespace TeachingAssistantApplication
         {
             InitializeComponent();
         }
-
+        public void test ()
+        {
+            //This is a test for branch comittment
+        }
     }
 }
