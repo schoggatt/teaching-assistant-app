@@ -29,7 +29,6 @@ namespace TeachingAssistantApplication
             uxRecommended.Text += queue.GetTime();
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
             Console.WriteLine("Test");
-            //uxQuestionTimer.Enabled = true;
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -66,7 +65,7 @@ namespace TeachingAssistantApplication
                     ASCIIEncoding eEncoding = new ASCIIEncoding();
                     string receivedMessage = eEncoding.GetString(receivedData);
 
-                    uxTextBox.Text += "\nTest: " + receivedMessage;
+                    uxChatBox.Items.Add("Friend: " + receivedMessage);
                 }
 
                 byte[] buffer = new byte[1500];
@@ -78,7 +77,6 @@ namespace TeachingAssistantApplication
             }
         }
 
-        //Start event handler
         private void UxStart_Click(object sender, EventArgs e)
         {
             try
@@ -122,6 +120,12 @@ namespace TeachingAssistantApplication
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
         }
 
+        private void UxSubmit_Click(object sender, EventArgs e)
+        {
+            queue.AddQuestion(uxInputQuestion.Text); //Add a new question object
+
+        }
+
         private void UxSend_Click(object sender, EventArgs e)
         {
             try
@@ -131,7 +135,7 @@ namespace TeachingAssistantApplication
                 msg = enc.GetBytes(uxInputBox.Text);
 
                 sck.Send(msg);
-                uxTextBox.Text += "\nYou: " + uxInputBox.Text;
+                uxChatBox.Items.Add("You: " + uxInputBox.Text);
                 uxInputBox.Clear();
             }
             catch (Exception ex)

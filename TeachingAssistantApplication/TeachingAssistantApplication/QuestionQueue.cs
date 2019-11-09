@@ -23,7 +23,7 @@ namespace TeachingAssistantApplication
         /// Adds a new question to the queue
         /// </summary>
         /// <param name="question"></param> String to create new question object
-        private void AddQuestion(string question)
+        public void AddQuestion(string question)
         {
             QuestionItem newQuestion = new QuestionItem(question);
             if(_questionQueue.Count == 0)
@@ -37,7 +37,7 @@ namespace TeachingAssistantApplication
         /// Gets the next question in the queue
         /// </summary>
         /// <returns></returns>
-        private QuestionItem GetNextQuestion()
+        public QuestionItem GetNextQuestion()
         {
             if(_questionQueue.Count != 0 && _current.Answered == true)
             {
