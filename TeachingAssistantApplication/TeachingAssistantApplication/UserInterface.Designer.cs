@@ -53,6 +53,7 @@
             this.uxChatBox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.uxDisconnect = new System.Windows.Forms.Button();
             this.uxLocalBox.SuspendLayout();
             this.uxRemoteGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -248,11 +249,22 @@
             this.uxChatBox.Size = new System.Drawing.Size(650, 324);
             this.uxChatBox.TabIndex = 22;
             // 
+            // uxDisconnect
+            // 
+            this.uxDisconnect.Location = new System.Drawing.Point(411, 22);
+            this.uxDisconnect.Name = "uxDisconnect";
+            this.uxDisconnect.Size = new System.Drawing.Size(127, 44);
+            this.uxDisconnect.TabIndex = 23;
+            this.uxDisconnect.Text = "Disconnect";
+            this.uxDisconnect.UseVisualStyleBackColor = true;
+            this.uxDisconnect.Click += new System.EventHandler(this.UxDisconnect_Click);
+            // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 691);
+            this.Controls.Add(this.uxDisconnect);
             this.Controls.Add(this.uxChatBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.uxInputBox);
@@ -305,6 +317,7 @@
         private System.Windows.Forms.ListBox uxChatBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.Button uxDisconnect;
     }
 }
 

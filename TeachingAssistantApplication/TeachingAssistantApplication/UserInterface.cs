@@ -106,7 +106,7 @@ namespace TeachingAssistantApplication
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
                 uxStart.Enabled = false;
-                uxStart.Text = "Connected";
+                uxChatBox.Items.Add("-- CONNECTED --");
                 uxSend.Enabled = true;
                 uxInputBox.Focus();
             }
@@ -135,6 +135,14 @@ namespace TeachingAssistantApplication
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
         }
 
+        private void UxDisconnect_Click(object sender, EventArgs e)
+        {
+            sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            uxChatBox.Items.Add("-- DISCONNECTED --");
+            uxFriendIP.Clear();
+            uxFriendPort.Clear();
+        }
 
         private void UxSend_Click(object sender, EventArgs e)
         {
