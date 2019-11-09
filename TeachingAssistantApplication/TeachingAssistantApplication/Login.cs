@@ -69,7 +69,6 @@ namespace TeachingAssistantApplication
                 {
                     MessageBox.Show("Please select either instructor or student");
                 }
-                FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxUsername.Text);
                 if (uxInstructorSelection.Checked)
                 {
                     retrieve = await client.GetAsync("Instructor Information/" + uxUsername.Text);
