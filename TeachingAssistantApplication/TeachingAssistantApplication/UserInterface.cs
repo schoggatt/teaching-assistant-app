@@ -20,12 +20,14 @@ namespace TeachingAssistantApplication
         byte[] buffer;
         QuestionQueue queue;
         string _username;
+        bool _isInstructor;
 
         int m = 0;
         int s = 0;
-        public UserInterface(string username)
+        public UserInterface(string username, bool isInstructor)
         {
             _username = username;
+            _isInstructor = isInstructor;
             queue = new QuestionQueue();
             InitializeComponent();
             uxQuestionCount.Text += queue.Count.ToString();
@@ -162,7 +164,7 @@ namespace TeachingAssistantApplication
                 sck.Send(msg);
                 if(uxInputBox.Text != "")
                 {
-                    uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
+                    uxChatBox.Items.Add(GetTag() + _username + ": " + uxInputBox.Text);
                 }
                 else
                 {
@@ -176,5 +178,13 @@ namespace TeachingAssistantApplication
             }
         }
 
+        private string GetTag()
+        {
+            if (_isInstructor)
+            {
+                return "[Teaching Assisant] -- ";
+            }
+            return "[Student] -- ";
+        }
     }
 }
