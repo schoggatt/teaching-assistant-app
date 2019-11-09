@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uxLogin = new System.Windows.Forms.TextBox();
             this.uxLoginButton = new System.Windows.Forms.Button();
             this.uxInstructor = new System.Windows.Forms.RadioButton();
@@ -40,12 +38,6 @@
             this.uxPassword = new System.Windows.Forms.TextBox();
             this.uxPasswordLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // uxLogin
             // 
@@ -158,7 +150,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox uxLogin;
         private System.Windows.Forms.Button uxLoginButton;
         private System.Windows.Forms.RadioButton uxInstructor;

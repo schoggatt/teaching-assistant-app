@@ -27,6 +27,7 @@ namespace TeachingAssistantApplication
 
         public string _username;
 
+        //Do i need this?
         public string _password;
 
         public Login()
@@ -61,6 +62,14 @@ namespace TeachingAssistantApplication
             };
 
             SetResponse response = await client.SetAsync("Login Information/" + uxLogin.Text, data);
+
+            FirebaseResponse retrieve = await client.GetAsync("Login Information/" + uxLogin.Text);
+            Data obj = retrieve.ResultAs<Data>();
+
+            //Retrieves the username from firebase and sets it to the global variable
+            _username = obj.username;
+
+
         }
     }
 }
