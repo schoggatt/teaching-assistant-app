@@ -78,7 +78,11 @@ namespace TeachingAssistantApplication
                 {
                     retrieve = await client.GetAsync("Student Information/" + uxUsername.Text);
                 }
-
+                else
+                {
+                    //while loop until checked
+                    MessageBox.Show("Please select either instructor or student");
+                }
                 //FIX: if user types into textbox and doesnt select it sets null
                 Data userData = retrieve.ResultAs<Data>();
                 var currUser = new Data
