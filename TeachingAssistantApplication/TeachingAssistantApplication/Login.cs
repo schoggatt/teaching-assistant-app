@@ -30,6 +30,14 @@ namespace TeachingAssistantApplication
         //Do i need this?
         public string _password;
 
+        public string Username
+        {
+            get
+            {
+                return _username;
+            }
+        }
+
         public Login()
         {
             InitializeComponent();

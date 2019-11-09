@@ -16,8 +16,9 @@ namespace TeachingAssistantApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            Application.Run(new UserInterface());
+            Login login = new Login();
+            Application.Run(login);
+            Application.Run(new UserInterface(login.Username));
         }
     }
 }
