@@ -55,6 +55,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.uxDisconnect = new System.Windows.Forms.Button();
+            this.uxNextQuestion = new System.Windows.Forms.Button();
             this.uxLocalBox.SuspendLayout();
             this.uxRemoteGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -276,11 +277,22 @@
             this.uxDisconnect.UseVisualStyleBackColor = true;
             this.uxDisconnect.Click += new System.EventHandler(this.UxDisconnect_Click);
             // 
+            // uxNextQuestion
+            // 
+            this.uxNextQuestion.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxNextQuestion.Location = new System.Drawing.Point(540, 95);
+            this.uxNextQuestion.Name = "uxNextQuestion";
+            this.uxNextQuestion.Size = new System.Drawing.Size(127, 44);
+            this.uxNextQuestion.TabIndex = 24;
+            this.uxNextQuestion.Text = "Next Question";
+            this.uxNextQuestion.UseVisualStyleBackColor = true;
+            // 
             // TAChatBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 691);
+            this.Controls.Add(this.uxNextQuestion);
             this.Controls.Add(this.uxDisconnect);
             this.Controls.Add(this.uxChatBox);
             this.Controls.Add(this.uxSubmit);
@@ -335,6 +347,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Button uxDisconnect;
+        private System.Windows.Forms.Button uxNextQuestion;
     }
 }
 

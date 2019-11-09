@@ -47,7 +47,7 @@
             // 
             this.uxUsername.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxUsername.Location = new System.Drawing.Point(107, 240);
-            this.uxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.uxUsername.Multiline = true;
             this.uxUsername.Name = "uxUsername";
             this.uxUsername.Size = new System.Drawing.Size(232, 36);
@@ -57,7 +57,7 @@
             // 
             this.uxLogin.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxLogin.Location = new System.Drawing.Point(79, 357);
-            this.uxLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxLogin.Margin = new System.Windows.Forms.Padding(4);
             this.uxLogin.Name = "uxLogin";
             this.uxLogin.Size = new System.Drawing.Size(133, 49);
             this.uxLogin.TabIndex = 9;
@@ -70,7 +70,7 @@
             this.uxInstructorSelection.AutoSize = true;
             this.uxInstructorSelection.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxInstructorSelection.Location = new System.Drawing.Point(107, 193);
-            this.uxInstructorSelection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxInstructorSelection.Margin = new System.Windows.Forms.Padding(4);
             this.uxInstructorSelection.Name = "uxInstructorSelection";
             this.uxInstructorSelection.Size = new System.Drawing.Size(109, 21);
             this.uxInstructorSelection.TabIndex = 4;
@@ -84,7 +84,7 @@
             this.uxStudentSelection.AutoSize = true;
             this.uxStudentSelection.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxStudentSelection.Location = new System.Drawing.Point(259, 193);
-            this.uxStudentSelection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxStudentSelection.Margin = new System.Windows.Forms.Padding(4);
             this.uxStudentSelection.Name = "uxStudentSelection";
             this.uxStudentSelection.Size = new System.Drawing.Size(85, 21);
             this.uxStudentSelection.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             this.uxExit.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxExit.Location = new System.Drawing.Point(221, 357);
-            this.uxExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxExit.Margin = new System.Windows.Forms.Padding(4);
             this.uxExit.Name = "uxExit";
             this.uxExit.Size = new System.Drawing.Size(133, 49);
             this.uxExit.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             this.uxPassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxPassword.Location = new System.Drawing.Point(107, 284);
-            this.uxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.uxPassword.Multiline = true;
             this.uxPassword.Name = "uxPassword";
             this.uxPassword.PasswordChar = '•';
@@ -186,7 +186,7 @@
             this.Controls.Add(this.uxUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
