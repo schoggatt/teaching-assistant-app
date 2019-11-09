@@ -139,7 +139,7 @@
             this.uxStart.Name = "uxStart";
             this.uxStart.Size = new System.Drawing.Size(127, 44);
             this.uxStart.TabIndex = 12;
-            this.uxStart.Text = "Start";
+            this.uxStart.Text = "Connect";
             this.uxStart.UseVisualStyleBackColor = true;
             this.uxStart.Click += new System.EventHandler(this.UxStart_Click);
             // 
