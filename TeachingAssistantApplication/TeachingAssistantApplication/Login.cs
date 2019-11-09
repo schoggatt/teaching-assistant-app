@@ -11,10 +11,11 @@ using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using MaterialSkin.Controls;
 
 namespace TeachingAssistantApplication
 {
-    public partial class Login : Form
+    public partial class Login : MaterialForm
     {
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -34,6 +35,11 @@ namespace TeachingAssistantApplication
         public Login()
         {
             InitializeComponent();
+            MaterialSkin.MaterialSkinManager manager = MaterialSkin.MaterialSkinManager.Instance;
+            manager.AddFormToManage(this);
+            manager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            manager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Red300, MaterialSkin.Primary.Red500, MaterialSkin.Primary.Red300, MaterialSkin.Accent.Red100, MaterialSkin.TextShade.WHITE);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         
         private void Login_Load(object sender, EventArgs e)
@@ -49,13 +55,21 @@ namespace TeachingAssistantApplication
 
         }
 
-        private async void UxLoginButton_Click(object sender, EventArgs e)
+        
+     
+
+        private void uxExit_Click(object sender, EventArgs e)
         {
-            if(uxUsername.Text == "" && uxPassword.Text == "")
+            Application.Exit();
+        }
+
+        private async void uxLogin_Click(object sender, EventArgs e)
+        {
+            if (uxUsername.Text == "" && uxPassword.Text == "")
             {
                 MessageBox.Show("Username and password are empty");
             }
-            else if(uxUsername.Text == "")
+            else if (uxUsername.Text == "")
             {
                 MessageBox.Show("Username is empty.");
             }
@@ -103,12 +117,11 @@ namespace TeachingAssistantApplication
                     MessageBox.Show("Username or password not found.");
                 }
             }
-
         }
 
-        private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void uxRegisterLink_Click(object sender, EventArgs e)
         {
-            if(uxInstructorSelection.Checked || uxStudentSelection.Checked )
+            if (uxInstructorSelection.Checked || uxStudentSelection.Checked)
             {
                 if (uxUsername.Text == "")
                 {
@@ -140,17 +153,10 @@ namespace TeachingAssistantApplication
             {
                 SetResponse studResponse = await client.SetAsync("Student Information/" + uxUsername.Text, newUser);
             }
-            else if(uxInstructorSelection.Checked)
+            else if (uxInstructorSelection.Checked)
             {
                 SetResponse instructResponse = await client.SetAsync("Instructor Information/" + uxUsername.Text, newUser);
             }
-            
-
-        }
-
-        private void UxExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
