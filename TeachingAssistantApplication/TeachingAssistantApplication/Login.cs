@@ -51,46 +51,61 @@ namespace TeachingAssistantApplication
 
         private async void UxLoginButton_Click(object sender, EventArgs e)
         {
-            
-            FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
-            if (uxInstructorSelection.Checked)
+            if(uxUsername.Text == "" && uxPassword.Text == "")
             {
-                retrieve = await client.GetAsync("Instructor Information/" + uxLogin.Text);
-                _IsInstructor = true;
+                MessageBox.Show("Username and password are empty");
             }
-            else if (uxStudentSelection.Checked)
+            else if(uxUsername.Text == "")
             {
-                retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
+                MessageBox.Show("Username is empty.");
             }
-            Data userData = retrieve.ResultAs<Data>();
-            var currUser = new Data
+            else if (uxPassword.Text == "")
             {
-                username = uxLogin.Text.Trim(),
-                password = uxPassword.Text.Trim()
-            };
-            if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
-            {
-                MessageBox.Show("Please select either instructor or student");
-            }
-            else if (Data.IsEqual(currUser, userData))
-            {
-                this.Hide();
-                _username = userData.username;
-                UserInterface TA = new UserInterface(_username, _IsInstructor);
-                TA.ShowDialog();
-                this.Close();
+                MessageBox.Show("Password is empty.");
             }
             else
             {
-                MessageBox.Show("Username or password not found.");
+                if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
+                {
+                    MessageBox.Show("Please select either instructor or student");
+                }
+                FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxUsername.Text);
+                if (uxInstructorSelection.Checked)
+                {
+                    retrieve = await client.GetAsync("Instructor Information/" + uxUsername.Text);
+                    _IsInstructor = true;
+                }
+                else if (uxStudentSelection.Checked)
+                {
+                    retrieve = await client.GetAsync("Student Information/" + uxUsername.Text);
+                }
+                Data userData = retrieve.ResultAs<Data>();
+                var currUser = new Data
+                {
+                    username = uxUsername.Text.Trim(),
+                    password = uxPassword.Text.Trim()
+                };
+                if (Data.IsEqual(currUser, userData))
+                {
+                    this.Hide();
+                    _username = userData.username;
+                    TAChatBox TA = new TAChatBox(_username, _IsInstructor);
+                    TA.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username or password not found.");
+                }
             }
+
         }
 
         private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if(uxInstructorSelection.Checked || uxStudentSelection.Checked )
             {
-                if (uxLogin.Text == "")
+                if (uxUsername.Text == "")
                 {
                     MessageBox.Show("Please enter a username");
                 }
@@ -98,7 +113,7 @@ namespace TeachingAssistantApplication
                 {
                     MessageBox.Show("Please enter a password");
                 }
-                else if (uxLogin.Text == "" && uxPassword.Text == "")
+                else if (uxUsername.Text == "" && uxPassword.Text == "")
                 {
                     MessageBox.Show("Please enter a username and a password");
                 }
@@ -112,17 +127,17 @@ namespace TeachingAssistantApplication
 
             var newUser = new Data
             {
-                username = uxLogin.Text.Trim(),
+                username = uxUsername.Text.Trim(),
                 password = uxPassword.Text.Trim()
             };
 
             if (uxStudentSelection.Checked)
             {
-                SetResponse studResponse = await client.SetAsync("Student Information/" + uxLogin.Text, newUser);
+                SetResponse studResponse = await client.SetAsync("Student Information/" + uxUsername.Text, newUser);
             }
             else if(uxInstructorSelection.Checked)
             {
-                SetResponse instructResponse = await client.SetAsync("Instructor Information/" + uxLogin.Text, newUser);
+                SetResponse instructResponse = await client.SetAsync("Instructor Information/" + uxUsername.Text, newUser);
             }
             
 
