@@ -32,8 +32,8 @@
             this.uxTextBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uxLocalBox = new System.Windows.Forms.GroupBox();
+            this.uxRemoteGroup = new System.Windows.Forms.GroupBox();
             this.uxFriendIP = new System.Windows.Forms.TextBox();
             this.uxLocalIP = new System.Windows.Forms.TextBox();
             this.uxLocalPort = new System.Windows.Forms.TextBox();
@@ -41,8 +41,8 @@
             this.uxInputBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.uxSend = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.uxLocalBox.SuspendLayout();
+            this.uxRemoteGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxTextBox
@@ -71,27 +71,27 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // groupBox1
+            // uxLocalBox
             // 
-            this.groupBox1.Controls.Add(this.uxLocalPort);
-            this.groupBox1.Controls.Add(this.uxLocalIP);
-            this.groupBox1.Location = new System.Drawing.Point(15, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 92);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Local";
+            this.uxLocalBox.Controls.Add(this.uxLocalPort);
+            this.uxLocalBox.Controls.Add(this.uxLocalIP);
+            this.uxLocalBox.Location = new System.Drawing.Point(15, 12);
+            this.uxLocalBox.Name = "uxLocalBox";
+            this.uxLocalBox.Size = new System.Drawing.Size(192, 92);
+            this.uxLocalBox.TabIndex = 9;
+            this.uxLocalBox.TabStop = false;
+            this.uxLocalBox.Text = "Local";
             // 
-            // groupBox2
+            // uxRemoteGroup
             // 
-            this.groupBox2.Controls.Add(this.uxFriendPort);
-            this.groupBox2.Controls.Add(this.uxFriendIP);
-            this.groupBox2.Location = new System.Drawing.Point(213, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(192, 92);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Remote";
+            this.uxRemoteGroup.Controls.Add(this.uxFriendPort);
+            this.uxRemoteGroup.Controls.Add(this.uxFriendIP);
+            this.uxRemoteGroup.Location = new System.Drawing.Point(213, 12);
+            this.uxRemoteGroup.Name = "uxRemoteGroup";
+            this.uxRemoteGroup.Size = new System.Drawing.Size(192, 92);
+            this.uxRemoteGroup.TabIndex = 10;
+            this.uxRemoteGroup.TabStop = false;
+            this.uxRemoteGroup.Text = "Remote";
             // 
             // uxFriendIP
             // 
@@ -156,16 +156,16 @@
             this.Controls.Add(this.uxSend);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.uxInputBox);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.uxRemoteGroup);
+            this.Controls.Add(this.uxLocalBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uxTextBox);
             this.Name = "UserInterface";
             this.Text = "Quick Question";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.uxLocalBox.ResumeLayout(false);
+            this.uxLocalBox.PerformLayout();
+            this.uxRemoteGroup.ResumeLayout(false);
+            this.uxRemoteGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,10 +176,10 @@
         private System.Windows.Forms.RichTextBox uxTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox uxLocalBox;
         private System.Windows.Forms.TextBox uxLocalPort;
         private System.Windows.Forms.TextBox uxLocalIP;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox uxRemoteGroup;
         private System.Windows.Forms.TextBox uxFriendPort;
         private System.Windows.Forms.TextBox uxFriendIP;
         private System.Windows.Forms.TextBox uxInputBox;
