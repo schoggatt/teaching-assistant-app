@@ -14,7 +14,7 @@
                 return false;
             }
 
-            if(newUser.username != currUser.username)
+            if (newUser.username != currUser.username)
             {
                 error = "Username does not exist.";
                 return false;

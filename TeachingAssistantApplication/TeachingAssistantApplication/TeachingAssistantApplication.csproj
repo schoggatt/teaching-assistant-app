@@ -89,11 +89,11 @@
     </Compile>
     <Compile Include="QuestionItem.cs" />
     <Compile Include="QuestionQueue.cs" />
-    <Compile Include="UserInterface.cs">
+    <Compile Include="TAChatBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserInterface.Designer.cs">
-      <DependentUpon>UserInterface.cs</DependentUpon>
+    <Compile Include="TAChatBox.Designer.cs">
+      <DependentUpon>TAChatBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,8 +109,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserInterface.resx">
-      <DependentUpon>UserInterface.cs</DependentUpon>
+    <EmbeddedResource Include="TAChatBox.resx">
+      <DependentUpon>TAChatBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

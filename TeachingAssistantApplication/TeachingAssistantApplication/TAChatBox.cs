@@ -13,7 +13,7 @@ using System.Net.Sockets;
 
 namespace TeachingAssistantApplication
 {
-    public partial class UserInterface : Form
+    public partial class TAChatBox : Form
     {
         Socket sck;
         EndPoint epLocal, epRemote;
@@ -24,7 +24,7 @@ namespace TeachingAssistantApplication
 
         int m = 0;
         int s = 0;
-        public UserInterface(string username, bool isInstructor)
+        public TAChatBox(string username, bool isInstructor)
         {
             _username = username;
             _isInstructor = isInstructor;
