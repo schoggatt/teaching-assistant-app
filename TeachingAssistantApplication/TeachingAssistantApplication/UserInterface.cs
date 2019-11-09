@@ -19,11 +19,13 @@ namespace TeachingAssistantApplication
         EndPoint epLocal, epRemote;
         byte[] buffer;
         QuestionQueue queue;
+        string _username;
 
         int m = 0;
         int s = 0;
-        public UserInterface()
+        public UserInterface(string username)
         {
+            _username = username;
             queue = new QuestionQueue();
             InitializeComponent();
             uxQuestionCount.Text += queue.Count.ToString();
@@ -78,7 +80,7 @@ namespace TeachingAssistantApplication
                     ListBox.CheckForIllegalCrossThreadCalls = false;
                     this.uxChatBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        uxChatBox.Items.Add("Friend: " + receivedMessage);
+                        uxChatBox.Items.Add(_username + ": " + receivedMessage);
                     }));
                     
                 }
@@ -143,6 +145,12 @@ namespace TeachingAssistantApplication
             uxFriendPort.Clear();
         }
 
+        //Submit button
+        private void UxSubmit_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void UxSend_Click(object sender, EventArgs e)
         {
             try
@@ -152,7 +160,7 @@ namespace TeachingAssistantApplication
                 msg = enc.GetBytes(uxInputBox.Text);
 
                 sck.Send(msg);
-                uxChatBox.Items.Add("You: " + uxInputBox.Text);
+                uxChatBox.Items.Add(_username + ": " + uxInputBox.Text);
                 uxInputBox.Clear();
             }
             catch (Exception ex)
@@ -160,6 +168,8 @@ namespace TeachingAssistantApplication
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
 
     }
 }
