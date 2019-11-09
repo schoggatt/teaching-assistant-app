@@ -55,8 +55,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.uxDisconnect = new System.Windows.Forms.Button();
-            this.uxDelete = new System.Windows.Forms.Button();
-            this.uxNextQuestion = new System.Windows.Forms.Button();
             this.uxLocalBox.SuspendLayout();
             this.uxRemoteGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -227,7 +225,7 @@
             this.uxStudentLabel.Location = new System.Drawing.Point(284, 135);
             this.uxStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.uxStudentLabel.Name = "uxStudentLabel";
-            this.uxStudentLabel.Size = new System.Drawing.Size(72, 17);
+            this.uxStudentLabel.Size = new System.Drawing.Size(55, 13);
             this.uxStudentLabel.TabIndex = 18;
             this.uxStudentLabel.Text = "Student:";
             // 
@@ -238,7 +236,7 @@
             this.uxQuestionLabel.Location = new System.Drawing.Point(284, 156);
             this.uxQuestionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.uxQuestionLabel.Name = "uxQuestionLabel";
-            this.uxQuestionLabel.Size = new System.Drawing.Size(80, 17);
+            this.uxQuestionLabel.Size = new System.Drawing.Size(61, 13);
             this.uxQuestionLabel.TabIndex = 19;
             this.uxQuestionLabel.Text = "Question:";
             // 
@@ -342,6 +340,7 @@
             this.Controls.Add(this.uxRemoteGroup);
             this.Controls.Add(this.uxLocalBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TAChatBox";
@@ -382,8 +381,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Button uxDisconnect;
-        private System.Windows.Forms.Button uxDelete;
-        private System.Windows.Forms.Button uxNextQuestion;
     }
 }
 
