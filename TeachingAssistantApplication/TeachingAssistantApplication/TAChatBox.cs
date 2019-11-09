@@ -193,7 +193,7 @@ namespace TeachingAssistantApplication
             if (s == 0)
             {
                 m--;
-                s = 60;
+                s = 59;
             }
             else
             {
@@ -237,6 +237,16 @@ namespace TeachingAssistantApplication
                 // queue = queue stored in the cloud
                 MessageBox.Show("Not Instructor");
             }
+
+
+            //Call a helper to get all of the student usernames and place each one in a list
+            //Iterate through the queue for each username
+                //Check if the username has any questions
+                    //If so add them to the queue and delete
+                    //Else if null
+                    //Go to next iteration
+
+
         }
 
         /// <summary>
@@ -252,7 +262,6 @@ namespace TeachingAssistantApplication
             uxFriendIP.Clear();
             uxFriendPort.Clear();
         }
-        //Submit button
 
         /// <summary>
         /// Click event for the submit button. Adds a new string to construct a new QuestionItem from the cloud.
