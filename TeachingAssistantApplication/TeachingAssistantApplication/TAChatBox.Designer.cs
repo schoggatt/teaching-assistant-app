@@ -80,6 +80,7 @@
             this.uxSubmit.Size = new System.Drawing.Size(113, 50);
             this.uxSubmit.TabIndex = 41;
             this.uxSubmit.Text = "Submit Question";
+            this.uxSubmit.Click += new System.EventHandler(UxSubmit_Click);
             // 
             // uxSend
             // 
@@ -91,6 +92,7 @@
             this.uxSend.Size = new System.Drawing.Size(113, 50);
             this.uxSend.TabIndex = 40;
             this.uxSend.Text = "Send";
+            this.uxSend.Click += new System.EventHandler(this.UxSend_Click);
             // 
             // uxQuestionCount
             // 
@@ -137,7 +139,8 @@
             this.uxNextQuestion.Name = "uxNextQuestion";
             this.uxNextQuestion.Size = new System.Drawing.Size(113, 44);
             this.uxNextQuestion.TabIndex = 35;
-            this.uxNextQuestion.Text = "NextQuestion";
+            this.uxNextQuestion.Text = "Next Question";
+            this.uxNextQuestion.Click += new System.EventHandler(this.UxNextQuestion_Click);
             // 
             // uxStart
             // 
@@ -149,6 +152,7 @@
             this.uxStart.Size = new System.Drawing.Size(113, 44);
             this.uxStart.TabIndex = 34;
             this.uxStart.Text = "Connect";
+            this.uxStart.Click += new System.EventHandler(this.UxConnect_Click);
             // 
             // uxDisconnect
             // 
@@ -159,7 +163,8 @@
             this.uxDisconnect.Name = "uxDisconnect";
             this.uxDisconnect.Size = new System.Drawing.Size(113, 44);
             this.uxDisconnect.TabIndex = 33;
-            this.uxDisconnect.Text = "Disconnect"; 
+            this.uxDisconnect.Text = "Disconnect";
+            this.uxDisconnect.Click += new System.EventHandler(this.UxDisconnect_Click);
             // 
             // uxRemoteLabel
             // 
@@ -229,14 +234,6 @@
             this.uxLocalPort.TabIndex = 4;
             this.uxLocalPort.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxLocalPort.UseSystemPasswordChar = false;
-            this.uxStudentLabel.AutoSize = true;
-            this.uxStudentLabel.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxStudentLabel.Location = new System.Drawing.Point(284, 135);
-            this.uxStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.uxStudentLabel.Name = "uxStudentLabel";
-            this.uxStudentLabel.Size = new System.Drawing.Size(55, 13);
-            this.uxStudentLabel.TabIndex = 18;
-            this.uxStudentLabel.Text = "Student:";
             // 
             // uxLocalIP
             // 
@@ -264,14 +261,6 @@
             this.uxChatLabel.Size = new System.Drawing.Size(54, 20);
             this.uxChatLabel.TabIndex = 30;
             this.uxChatLabel.Text = "Chat: ";
-            this.uxQuestionLabel.AutoSize = true;
-            this.uxQuestionLabel.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxQuestionLabel.Location = new System.Drawing.Point(284, 156);
-            this.uxQuestionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.uxQuestionLabel.Name = "uxQuestionLabel";
-            this.uxQuestionLabel.Size = new System.Drawing.Size(61, 13);
-            this.uxQuestionLabel.TabIndex = 19;
-            this.uxQuestionLabel.Text = "Question:";
             // 
             // uxInputQuestion
             // 
@@ -310,6 +299,7 @@
             this.uxQuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxQuestionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.uxQuestionLabel.Location = new System.Drawing.Point(12, 211);
+            this.uxQuestionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.uxQuestionLabel.Name = "uxQuestionLabel";
             this.uxQuestionLabel.Size = new System.Drawing.Size(81, 20);
             this.uxQuestionLabel.TabIndex = 26;
@@ -322,6 +312,7 @@
             this.uxStudentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxStudentLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.uxStudentLabel.Location = new System.Drawing.Point(12, 189);
+            this.uxStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.uxStudentLabel.Name = "uxStudentLabel";
             this.uxStudentLabel.Size = new System.Drawing.Size(71, 20);
             this.uxStudentLabel.TabIndex = 25;
@@ -397,6 +388,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "TAChatBox";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

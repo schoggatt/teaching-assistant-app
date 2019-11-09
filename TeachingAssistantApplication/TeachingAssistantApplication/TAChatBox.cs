@@ -58,7 +58,7 @@ namespace TeachingAssistantApplication
         {
             _serverTimer = new Timer();
             _serverTimer.Enabled = true;
-            _serverTimer.Interval = 15000;
+            _serverTimer.Interval = 5000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
 
 
@@ -160,7 +160,7 @@ namespace TeachingAssistantApplication
         /// </summary>
         /// <param name="sender"></param> Sender of the event
         /// <param name="e"></param> The event
-        private void UxStart_Click(object sender, EventArgs e)
+        private void UxConnect_Click(object sender, EventArgs e)
         {
             try
             {
@@ -230,37 +230,39 @@ namespace TeachingAssistantApplication
 
 
             //Call a helper to get all of the student usernames and place each one in a queue
-            Queue<QuestionInformation> usernames = GetUser(userData.username);
-            Queue<string> questions = new Queue<string>();
-            //Iterate through the queue for each username
-            
+            if (userData != null)
+            { //Changes
+                Queue<QuestionInformation> usernames = GetUser(userData.username);
+                Queue<string> questions = new Queue<string>();
+                //Iterate through the queue for each username
 
-            //Once empty upload that queue to the cloud
 
-            if (_isInstructor && userData.Count > 0 || userData != null)
-            {
-                while (usernames.Count > 0)
+                //Once empty upload that queue to the cloud
+
+                if (_isInstructor && userData.Count > 0 || userData != null)
                 {
-                    QuestionInformation user = usernames.Dequeue();
-                    if (user.question == String.Empty)
+                    while (usernames.Count > 0)
                     {
-                        usernames.Dequeue();
+                        QuestionInformation user = usernames.Dequeue();
+                        if (user.question == String.Empty)
+                        {
+                            usernames.Dequeue();
+                        }
+                        else
+                        {
+                            questions.Enqueue(user.question);
+                        }
                     }
-                    else
-                    {
-                        questions.Enqueue(user.question);
-                    }
+                    queue.AddQuestion(questions.Dequeue(), userData.IP, userData.username);
+                    uxQuestionCount.Text = queue.Count.ToString();
+                    FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
+                    userData.Count--;
                 }
-                queue.AddQuestion(questions.Dequeue(), userData.IP, userData.username);
-                uxQuestionCount.Text = queue.Count.ToString();
-                FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
-                userData.Count--;
-            }
-            else if(!_isInstructor)
-            {
-                // queue = queue stored in the cloud
-            }
-
+                else if (!_isInstructor)
+                {
+                    // queue = queue stored in the cloud
+                }
+            } //changes
         }
 
         /// <summary>
@@ -374,6 +376,7 @@ namespace TeachingAssistantApplication
             userinfo.Enqueue(userData);
             return userinfo;
         }
+
         /// <summary>
         /// Gets the aloted time for a question.
         /// </summary>
