@@ -15,6 +15,11 @@ namespace TeachingAssistantApplication
 {
     public partial class UserInterface : Form
     {
+        //this is testing for the branch
+        public void test ()
+        {
+            //blah blah
+        }
         Socket sck;
         EndPoint epLocal, epRemote;
         public UserInterface()
