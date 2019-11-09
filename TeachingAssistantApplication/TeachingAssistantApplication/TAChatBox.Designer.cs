@@ -30,47 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAChatBox));
-            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.uxLocalBox = new System.Windows.Forms.GroupBox();
-            this.uxLocalPort = new System.Windows.Forms.TextBox();
-            this.uxLocalIP = new System.Windows.Forms.TextBox();
-            this.uxRemoteGroup = new System.Windows.Forms.GroupBox();
-            this.uxFriendPort = new System.Windows.Forms.TextBox();
-            this.uxFriendIP = new System.Windows.Forms.TextBox();
-            this.uxInputQuestion = new System.Windows.Forms.TextBox();
-            this.uxStart = new System.Windows.Forms.Button();
-            this.uxSend = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.uxRecommended = new System.Windows.Forms.Label();
-            this.uxQuestionCount = new System.Windows.Forms.Label();
-            this.uxTimer = new System.Windows.Forms.Label();
             this.uxQuestionTimer = new System.Windows.Forms.Timer(this.components);
-            this.uxStudentLabel = new System.Windows.Forms.Label();
-            this.uxQuestionLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.uxInputBox = new System.Windows.Forms.TextBox();
-            this.uxSubmit = new System.Windows.Forms.Button();
-            this.uxChatBox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.uxDisconnect = new System.Windows.Forms.Button();
-            this.uxDelete = new System.Windows.Forms.Button();
-            this.uxNextQuestion = new System.Windows.Forms.Button();
-            this.uxLocalBox.SuspendLayout();
-            this.uxRemoteGroup.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.uxSubmit = new LollipopButton();
+            this.uxSend = new LollipopButton();
+            this.uxQuestionCount = new LollipopLabel();
+            this.uxRecommended = new LollipopLabel();
+            this.uxTimer = new LollipopLabel();
+            this.uxNextQuestion = new LollipopButton();
+            this.uxStart = new LollipopButton();
+            this.uxDisconnect = new LollipopButton();
+            this.uxRemoteLabel = new LollipopLabel();
+            this.uxFriendPort = new LollipopTextBox();
+            this.uxLocalLabel = new LollipopLabel();
+            this.uxFriendIP = new LollipopTextBox();
+            this.uxLocalPort = new LollipopTextBox();
+            this.uxLocalIP = new LollipopTextBox();
+            this.uxChatLabel = new LollipopLabel();
+            this.uxInputQuestion = new LollipopTextBox();
+            this.uxInputBox = new LollipopTextBox();
+            this.uxQuestionLabel = new LollipopLabel();
+            this.uxStudentLabel = new LollipopLabel();
+            this.uxQuestionText = new LollipopTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.uxChatBox = new LollipopTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 196);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Chat:";
             // 
             // contextMenuStrip1
             // 
@@ -78,312 +65,356 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // uxLocalBox
-            // 
-            this.uxLocalBox.Controls.Add(this.uxLocalPort);
-            this.uxLocalBox.Controls.Add(this.uxLocalIP);
-            this.uxLocalBox.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxLocalBox.Location = new System.Drawing.Point(15, 12);
-            this.uxLocalBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxLocalBox.Name = "uxLocalBox";
-            this.uxLocalBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxLocalBox.Size = new System.Drawing.Size(192, 92);
-            this.uxLocalBox.TabIndex = 9;
-            this.uxLocalBox.TabStop = false;
-            this.uxLocalBox.Text = "Local";
-            // 
-            // uxLocalPort
-            // 
-            this.uxLocalPort.Location = new System.Drawing.Point(85, 49);
-            this.uxLocalPort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxLocalPort.Name = "uxLocalPort";
-            this.uxLocalPort.Size = new System.Drawing.Size(100, 23);
-            this.uxLocalPort.TabIndex = 2;
-            // 
-            // uxLocalIP
-            // 
-            this.uxLocalIP.Location = new System.Drawing.Point(85, 21);
-            this.uxLocalIP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxLocalIP.Name = "uxLocalIP";
-            this.uxLocalIP.Size = new System.Drawing.Size(100, 23);
-            this.uxLocalIP.TabIndex = 1;
-            // 
-            // uxRemoteGroup
-            // 
-            this.uxRemoteGroup.Controls.Add(this.uxFriendPort);
-            this.uxRemoteGroup.Controls.Add(this.uxFriendIP);
-            this.uxRemoteGroup.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxRemoteGroup.Location = new System.Drawing.Point(213, 12);
-            this.uxRemoteGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxRemoteGroup.Name = "uxRemoteGroup";
-            this.uxRemoteGroup.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxRemoteGroup.Size = new System.Drawing.Size(192, 92);
-            this.uxRemoteGroup.TabIndex = 10;
-            this.uxRemoteGroup.TabStop = false;
-            this.uxRemoteGroup.Text = "Remote";
-            // 
-            // uxFriendPort
-            // 
-            this.uxFriendPort.Location = new System.Drawing.Point(85, 49);
-            this.uxFriendPort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxFriendPort.Name = "uxFriendPort";
-            this.uxFriendPort.Size = new System.Drawing.Size(100, 23);
-            this.uxFriendPort.TabIndex = 3;
-            // 
-            // uxFriendIP
-            // 
-            this.uxFriendIP.Location = new System.Drawing.Point(85, 21);
-            this.uxFriendIP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxFriendIP.Name = "uxFriendIP";
-            this.uxFriendIP.Size = new System.Drawing.Size(100, 23);
-            this.uxFriendIP.TabIndex = 0;
-            // 
-            // uxInputQuestion
-            // 
-            this.uxInputQuestion.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxInputQuestion.Location = new System.Drawing.Point(12, 629);
-            this.uxInputQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxInputQuestion.Multiline = true;
-            this.uxInputQuestion.Name = "uxInputQuestion";
-            this.uxInputQuestion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxInputQuestion.Size = new System.Drawing.Size(521, 50);
-            this.uxInputQuestion.TabIndex = 11;
-            // 
-            // uxStart
-            // 
-            this.uxStart.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxStart.Location = new System.Drawing.Point(540, 22);
-            this.uxStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxStart.Name = "uxStart";
-            this.uxStart.Size = new System.Drawing.Size(127, 44);
-            this.uxStart.TabIndex = 12;
-            this.uxStart.Text = "Connect";
-            this.uxStart.UseVisualStyleBackColor = true;
-            this.uxStart.Click += new System.EventHandler(this.UxStart_Click);
-            // 
-            // uxSend
-            // 
-            this.uxSend.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxSend.Location = new System.Drawing.Point(540, 569);
-            this.uxSend.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxSend.Name = "uxSend";
-            this.uxSend.Size = new System.Drawing.Size(127, 50);
-            this.uxSend.TabIndex = 13;
-            this.uxSend.Text = "Send";
-            this.uxSend.UseVisualStyleBackColor = true;
-            this.uxSend.Click += new System.EventHandler(this.UxSend_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.uxRecommended);
-            this.groupBox1.Controls.Add(this.uxQuestionCount);
-            this.groupBox1.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 110);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(192, 71);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Queue Statistics";
-            // 
-            // uxRecommended
-            // 
-            this.uxRecommended.AutoSize = true;
-            this.uxRecommended.Location = new System.Drawing.Point(5, 34);
-            this.uxRecommended.Name = "uxRecommended";
-            this.uxRecommended.Size = new System.Drawing.Size(104, 17);
-            this.uxRecommended.TabIndex = 16;
-            this.uxRecommended.Text = "Time Limit: ";
-            // 
-            // uxQuestionCount
-            // 
-            this.uxQuestionCount.AutoSize = true;
-            this.uxQuestionCount.Location = new System.Drawing.Point(5, 18);
-            this.uxQuestionCount.Name = "uxQuestionCount";
-            this.uxQuestionCount.Size = new System.Drawing.Size(136, 17);
-            this.uxQuestionCount.TabIndex = 15;
-            this.uxQuestionCount.Text = "# of Questions: ";
-            // 
-            // uxTimer
-            // 
-            this.uxTimer.AutoSize = true;
-            this.uxTimer.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxTimer.Location = new System.Drawing.Point(537, 69);
-            this.uxTimer.Name = "uxTimer";
-            this.uxTimer.Size = new System.Drawing.Size(56, 17);
-            this.uxTimer.TabIndex = 17;
-            this.uxTimer.Text = "Timer:";
-            // 
             // uxQuestionTimer
             // 
             this.uxQuestionTimer.Interval = 1000;
             this.uxQuestionTimer.Tick += new System.EventHandler(this.UxQuestionTimer_Tick);
             // 
-            // uxStudentLabel
+            // uxSubmit
             // 
-            this.uxStudentLabel.AutoSize = true;
-            this.uxStudentLabel.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxStudentLabel.Location = new System.Drawing.Point(284, 135);
-            this.uxStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.uxStudentLabel.Name = "uxStudentLabel";
-            this.uxStudentLabel.Size = new System.Drawing.Size(72, 17);
-            this.uxStudentLabel.TabIndex = 18;
-            this.uxStudentLabel.Text = "Student:";
+            this.uxSubmit.BackColor = System.Drawing.Color.Transparent;
+            this.uxSubmit.BGColor = "#ff0033";
+            this.uxSubmit.FontColor = "#ffffff";
+            this.uxSubmit.Location = new System.Drawing.Point(597, 726);
+            this.uxSubmit.Name = "uxSubmit";
+            this.uxSubmit.Size = new System.Drawing.Size(113, 50);
+            this.uxSubmit.TabIndex = 41;
+            this.uxSubmit.Text = "Submit Question";
+            // 
+            // uxSend
+            // 
+            this.uxSend.BackColor = System.Drawing.Color.Transparent;
+            this.uxSend.BGColor = "#ff0033";
+            this.uxSend.FontColor = "#ffffff";
+            this.uxSend.Location = new System.Drawing.Point(597, 670);
+            this.uxSend.Name = "uxSend";
+            this.uxSend.Size = new System.Drawing.Size(113, 50);
+            this.uxSend.TabIndex = 40;
+            this.uxSend.Text = "Send";
+            // 
+            // uxQuestionCount
+            // 
+            this.uxQuestionCount.AutoSize = true;
+            this.uxQuestionCount.BackColor = System.Drawing.Color.Transparent;
+            this.uxQuestionCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxQuestionCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxQuestionCount.Location = new System.Drawing.Point(355, 175);
+            this.uxQuestionCount.Name = "uxQuestionCount";
+            this.uxQuestionCount.Size = new System.Drawing.Size(128, 20);
+            this.uxQuestionCount.TabIndex = 39;
+            this.uxQuestionCount.Text = "# of Questions: ";
+            // 
+            // uxRecommended
+            // 
+            this.uxRecommended.AutoSize = true;
+            this.uxRecommended.BackColor = System.Drawing.Color.Transparent;
+            this.uxRecommended.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxRecommended.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxRecommended.Location = new System.Drawing.Point(355, 206);
+            this.uxRecommended.Name = "uxRecommended";
+            this.uxRecommended.Size = new System.Drawing.Size(98, 20);
+            this.uxRecommended.TabIndex = 38;
+            this.uxRecommended.Text = "Time Limit: ";
+            // 
+            // uxTimer
+            // 
+            this.uxTimer.AutoSize = true;
+            this.uxTimer.BackColor = System.Drawing.Color.Transparent;
+            this.uxTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxTimer.Location = new System.Drawing.Point(355, 148);
+            this.uxTimer.Name = "uxTimer";
+            this.uxTimer.Size = new System.Drawing.Size(62, 20);
+            this.uxTimer.TabIndex = 36;
+            this.uxTimer.Text = "Timer: ";
+            // 
+            // uxNextQuestion
+            // 
+            this.uxNextQuestion.BackColor = System.Drawing.Color.Transparent;
+            this.uxNextQuestion.BGColor = "#ff0033";
+            this.uxNextQuestion.FontColor = "#ffffff";
+            this.uxNextQuestion.Location = new System.Drawing.Point(597, 96);
+            this.uxNextQuestion.Name = "uxNextQuestion";
+            this.uxNextQuestion.Size = new System.Drawing.Size(113, 44);
+            this.uxNextQuestion.TabIndex = 35;
+            this.uxNextQuestion.Text = "NextQuestion";
+            // 
+            // uxStart
+            // 
+            this.uxStart.BackColor = System.Drawing.Color.Transparent;
+            this.uxStart.BGColor = "#ff0033";
+            this.uxStart.FontColor = "#ffffff";
+            this.uxStart.Location = new System.Drawing.Point(359, 96);
+            this.uxStart.Name = "uxStart";
+            this.uxStart.Size = new System.Drawing.Size(113, 44);
+            this.uxStart.TabIndex = 34;
+            this.uxStart.Text = "Connect";
+            // 
+            // uxDisconnect
+            // 
+            this.uxDisconnect.BackColor = System.Drawing.Color.Transparent;
+            this.uxDisconnect.BGColor = "#ff0033";
+            this.uxDisconnect.FontColor = "#ffffff";
+            this.uxDisconnect.Location = new System.Drawing.Point(478, 96);
+            this.uxDisconnect.Name = "uxDisconnect";
+            this.uxDisconnect.Size = new System.Drawing.Size(113, 44);
+            this.uxDisconnect.TabIndex = 33;
+            this.uxDisconnect.Text = "Disconnect";
+            // 
+            // uxRemoteLabel
+            // 
+            this.uxRemoteLabel.AutoSize = true;
+            this.uxRemoteLabel.BackColor = System.Drawing.Color.Transparent;
+            this.uxRemoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxRemoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxRemoteLabel.Location = new System.Drawing.Point(239, 88);
+            this.uxRemoteLabel.Name = "uxRemoteLabel";
+            this.uxRemoteLabel.Size = new System.Drawing.Size(67, 20);
+            this.uxRemoteLabel.TabIndex = 32;
+            this.uxRemoteLabel.Text = "Remote";
+            // 
+            // uxFriendPort
+            // 
+            this.uxFriendPort.FocusedColor = "#ff0033";
+            this.uxFriendPort.FontColor = "#999999";
+            this.uxFriendPort.IsEnabled = true;
+            this.uxFriendPort.Location = new System.Drawing.Point(217, 146);
+            this.uxFriendPort.MaxLength = 32767;
+            this.uxFriendPort.Multiline = false;
+            this.uxFriendPort.Name = "uxFriendPort";
+            this.uxFriendPort.ReadOnly = false;
+            this.uxFriendPort.Size = new System.Drawing.Size(111, 24);
+            this.uxFriendPort.TabIndex = 5;
+            this.uxFriendPort.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxFriendPort.UseSystemPasswordChar = false;
+            // 
+            // uxLocalLabel
+            // 
+            this.uxLocalLabel.AutoSize = true;
+            this.uxLocalLabel.BackColor = System.Drawing.Color.Transparent;
+            this.uxLocalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxLocalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxLocalLabel.Location = new System.Drawing.Point(73, 88);
+            this.uxLocalLabel.Name = "uxLocalLabel";
+            this.uxLocalLabel.Size = new System.Drawing.Size(50, 20);
+            this.uxLocalLabel.TabIndex = 31;
+            this.uxLocalLabel.Text = "Local";
+            // 
+            // uxFriendIP
+            // 
+            this.uxFriendIP.FocusedColor = "#ff0033";
+            this.uxFriendIP.FontColor = "#999999";
+            this.uxFriendIP.IsEnabled = true;
+            this.uxFriendIP.Location = new System.Drawing.Point(217, 116);
+            this.uxFriendIP.MaxLength = 32767;
+            this.uxFriendIP.Multiline = false;
+            this.uxFriendIP.Name = "uxFriendIP";
+            this.uxFriendIP.ReadOnly = false;
+            this.uxFriendIP.Size = new System.Drawing.Size(111, 24);
+            this.uxFriendIP.TabIndex = 4;
+            this.uxFriendIP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxFriendIP.UseSystemPasswordChar = false;
+            // 
+            // uxLocalPort
+            // 
+            this.uxLocalPort.FocusedColor = "#ff0033";
+            this.uxLocalPort.FontColor = "#999999";
+            this.uxLocalPort.IsEnabled = true;
+            this.uxLocalPort.Location = new System.Drawing.Point(42, 146);
+            this.uxLocalPort.MaxLength = 32767;
+            this.uxLocalPort.Multiline = false;
+            this.uxLocalPort.Name = "uxLocalPort";
+            this.uxLocalPort.ReadOnly = false;
+            this.uxLocalPort.Size = new System.Drawing.Size(110, 24);
+            this.uxLocalPort.TabIndex = 4;
+            this.uxLocalPort.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxLocalPort.UseSystemPasswordChar = false;
+            // 
+            // uxLocalIP
+            // 
+            this.uxLocalIP.FocusedColor = "#ff0033";
+            this.uxLocalIP.FontColor = "#999999";
+            this.uxLocalIP.IsEnabled = true;
+            this.uxLocalIP.Location = new System.Drawing.Point(42, 116);
+            this.uxLocalIP.MaxLength = 32767;
+            this.uxLocalIP.Multiline = false;
+            this.uxLocalIP.Name = "uxLocalIP";
+            this.uxLocalIP.ReadOnly = false;
+            this.uxLocalIP.Size = new System.Drawing.Size(110, 24);
+            this.uxLocalIP.TabIndex = 3;
+            this.uxLocalIP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxLocalIP.UseSystemPasswordChar = false;
+            // 
+            // uxChatLabel
+            // 
+            this.uxChatLabel.AutoSize = true;
+            this.uxChatLabel.BackColor = System.Drawing.Color.Transparent;
+            this.uxChatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxChatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxChatLabel.Location = new System.Drawing.Point(12, 301);
+            this.uxChatLabel.Name = "uxChatLabel";
+            this.uxChatLabel.Size = new System.Drawing.Size(54, 20);
+            this.uxChatLabel.TabIndex = 30;
+            this.uxChatLabel.Text = "Chat: ";
+            // 
+            // uxInputQuestion
+            // 
+            this.uxInputQuestion.FocusedColor = "#ff0033";
+            this.uxInputQuestion.FontColor = "#999999";
+            this.uxInputQuestion.IsEnabled = true;
+            this.uxInputQuestion.Location = new System.Drawing.Point(12, 726);
+            this.uxInputQuestion.MaxLength = 32767;
+            this.uxInputQuestion.Multiline = true;
+            this.uxInputQuestion.Name = "uxInputQuestion";
+            this.uxInputQuestion.ReadOnly = false;
+            this.uxInputQuestion.Size = new System.Drawing.Size(579, 50);
+            this.uxInputQuestion.TabIndex = 28;
+            this.uxInputQuestion.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxInputQuestion.UseSystemPasswordChar = false;
+            // 
+            // uxInputBox
+            // 
+            this.uxInputBox.FocusedColor = "#ff0033";
+            this.uxInputBox.FontColor = "#999999";
+            this.uxInputBox.IsEnabled = true;
+            this.uxInputBox.Location = new System.Drawing.Point(12, 670);
+            this.uxInputBox.MaxLength = 32767;
+            this.uxInputBox.Multiline = true;
+            this.uxInputBox.Name = "uxInputBox";
+            this.uxInputBox.ReadOnly = false;
+            this.uxInputBox.Size = new System.Drawing.Size(579, 50);
+            this.uxInputBox.TabIndex = 27;
+            this.uxInputBox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxInputBox.UseSystemPasswordChar = false;
             // 
             // uxQuestionLabel
             // 
             this.uxQuestionLabel.AutoSize = true;
-            this.uxQuestionLabel.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxQuestionLabel.Location = new System.Drawing.Point(284, 156);
-            this.uxQuestionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.uxQuestionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.uxQuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxQuestionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxQuestionLabel.Location = new System.Drawing.Point(12, 211);
             this.uxQuestionLabel.Name = "uxQuestionLabel";
-            this.uxQuestionLabel.Size = new System.Drawing.Size(80, 17);
-            this.uxQuestionLabel.TabIndex = 19;
+            this.uxQuestionLabel.Size = new System.Drawing.Size(81, 20);
+            this.uxQuestionLabel.TabIndex = 26;
             this.uxQuestionLabel.Text = "Question:";
             // 
-            // textBox1
+            // uxStudentLabel
             // 
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(216, 146);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(451, 63);
-            this.textBox1.TabIndex = 4;
+            this.uxStudentLabel.AutoSize = true;
+            this.uxStudentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.uxStudentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxStudentLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxStudentLabel.Location = new System.Drawing.Point(12, 189);
+            this.uxStudentLabel.Name = "uxStudentLabel";
+            this.uxStudentLabel.Size = new System.Drawing.Size(71, 20);
+            this.uxStudentLabel.TabIndex = 25;
+            this.uxStudentLabel.Text = "Student:";
             // 
-            // uxInputBox
+            // uxQuestionText
             // 
-            this.uxInputBox.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxInputBox.Location = new System.Drawing.Point(12, 569);
-            this.uxInputBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxInputBox.Multiline = true;
-            this.uxInputBox.Name = "uxInputBox";
-            this.uxInputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxInputBox.Size = new System.Drawing.Size(521, 50);
-            this.uxInputBox.TabIndex = 20;
+            this.uxQuestionText.FocusedColor = "#ff0033";
+            this.uxQuestionText.FontColor = "#999999";
+            this.uxQuestionText.IsEnabled = true;
+            this.uxQuestionText.Location = new System.Drawing.Point(12, 236);
+            this.uxQuestionText.MaxLength = 32767;
+            this.uxQuestionText.Multiline = true;
+            this.uxQuestionText.Name = "uxQuestionText";
+            this.uxQuestionText.ReadOnly = false;
+            this.uxQuestionText.Size = new System.Drawing.Size(698, 62);
+            this.uxQuestionText.TabIndex = 3;
+            this.uxQuestionText.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxQuestionText.UseSystemPasswordChar = false;
             // 
-            // uxSubmit
+            // pictureBox2
             // 
-            this.uxSubmit.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxSubmit.Location = new System.Drawing.Point(540, 629);
-            this.uxSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxSubmit.Name = "uxSubmit";
-            this.uxSubmit.Size = new System.Drawing.Size(127, 50);
-            this.uxSubmit.TabIndex = 21;
-            this.uxSubmit.Text = "Submit Question";
-            this.uxSubmit.UseVisualStyleBackColor = true;
-            this.uxSubmit.Click += new System.EventHandler(this.UxSubmit_Click);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(-7, 32);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(756, 111);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 42;
+            this.pictureBox2.TabStop = false;
             // 
             // uxChatBox
             // 
-            this.uxChatBox.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxChatBox.FormattingEnabled = true;
-            this.uxChatBox.ItemHeight = 15;
-            this.uxChatBox.Location = new System.Drawing.Point(12, 224);
-            this.uxChatBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxChatBox.FocusedColor = "#ff0033";
+            this.uxChatBox.FontColor = "#999999";
+            this.uxChatBox.IsEnabled = true;
+            this.uxChatBox.Location = new System.Drawing.Point(12, 324);
+            this.uxChatBox.MaxLength = 32767;
+            this.uxChatBox.Multiline = true;
             this.uxChatBox.Name = "uxChatBox";
-            this.uxChatBox.Size = new System.Drawing.Size(649, 304);
-            this.uxChatBox.TabIndex = 22;
-            // 
-            // uxDisconnect
-            // 
-            this.uxDisconnect.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxDisconnect.Location = new System.Drawing.Point(411, 22);
-            this.uxDisconnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisconnect.Name = "uxDisconnect";
-            this.uxDisconnect.Size = new System.Drawing.Size(127, 44);
-            this.uxDisconnect.TabIndex = 23;
-            this.uxDisconnect.Text = "Disconnect";
-            this.uxDisconnect.UseVisualStyleBackColor = true;
-            this.uxDisconnect.Click += new System.EventHandler(this.UxDisconnect_Click);
-            // 
-            // uxDelete
-            // 
-            this.uxDelete.Location = new System.Drawing.Point(495, 96);
-            this.uxDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.uxDelete.Name = "uxDelete";
-            this.uxDelete.Size = new System.Drawing.Size(100, 28);
-            this.uxDelete.TabIndex = 24;
-            this.uxDelete.Text = "DeleteQ";
-            this.uxDelete.UseVisualStyleBackColor = true;
-            // 
-            // uxNextQuestion
-            // 
-            this.uxNextQuestion.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxNextQuestion.Location = new System.Drawing.Point(720, 117);
-            this.uxNextQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.uxNextQuestion.Name = "uxNextQuestion";
-            this.uxNextQuestion.Size = new System.Drawing.Size(169, 54);
-            this.uxNextQuestion.TabIndex = 24;
-            this.uxNextQuestion.Text = "Next Question";
-            this.uxNextQuestion.UseVisualStyleBackColor = true;
-            this.uxNextQuestion.Click += new System.EventHandler(this.UxNextQuestion_Click);
+            this.uxChatBox.ReadOnly = false;
+            this.uxChatBox.Size = new System.Drawing.Size(698, 340);
+            this.uxChatBox.TabIndex = 43;
+            this.uxChatBox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxChatBox.UseSystemPasswordChar = false;
             // 
             // TAChatBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 850);
-            this.Controls.Add(this.uxDelete);
-            this.Controls.Add(this.uxNextQuestion);
-            this.Controls.Add(this.uxDisconnect);
+            this.ClientSize = new System.Drawing.Size(732, 798);
             this.Controls.Add(this.uxChatBox);
+            this.Controls.Add(this.uxRemoteLabel);
             this.Controls.Add(this.uxSubmit);
+            this.Controls.Add(this.uxSend);
+            this.Controls.Add(this.uxQuestionCount);
+            this.Controls.Add(this.uxRecommended);
+            this.Controls.Add(this.uxTimer);
+            this.Controls.Add(this.uxNextQuestion);
+            this.Controls.Add(this.uxStart);
+            this.Controls.Add(this.uxDisconnect);
+            this.Controls.Add(this.uxFriendPort);
+            this.Controls.Add(this.uxLocalLabel);
+            this.Controls.Add(this.uxFriendIP);
+            this.Controls.Add(this.uxLocalPort);
+            this.Controls.Add(this.uxLocalIP);
+            this.Controls.Add(this.uxChatLabel);
+            this.Controls.Add(this.uxInputQuestion);
             this.Controls.Add(this.uxInputBox);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.uxQuestionLabel);
             this.Controls.Add(this.uxStudentLabel);
-            this.Controls.Add(this.uxTimer);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.uxSend);
-            this.Controls.Add(this.uxStart);
-            this.Controls.Add(this.uxInputQuestion);
-            this.Controls.Add(this.uxRemoteGroup);
-            this.Controls.Add(this.uxLocalBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.uxQuestionText);
+            this.Controls.Add(this.pictureBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TAChatBox";
-            this.uxLocalBox.ResumeLayout(false);
-            this.uxLocalBox.PerformLayout();
-            this.uxRemoteGroup.ResumeLayout(false);
-            this.uxRemoteGroup.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.GroupBox uxLocalBox;
-        private System.Windows.Forms.TextBox uxLocalPort;
-        private System.Windows.Forms.TextBox uxLocalIP;
-        private System.Windows.Forms.GroupBox uxRemoteGroup;
-        private System.Windows.Forms.TextBox uxFriendPort;
-        private System.Windows.Forms.TextBox uxFriendIP;
-        private System.Windows.Forms.TextBox uxInputQuestion;
-        private System.Windows.Forms.Button uxStart;
-        private System.Windows.Forms.Button uxSend;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label uxRecommended;
-        private System.Windows.Forms.Label uxQuestionCount;
-        private System.Windows.Forms.Label uxTimer;
         private System.Windows.Forms.Timer uxQuestionTimer;
-        private System.Windows.Forms.Label uxStudentLabel;
-        private System.Windows.Forms.Label uxQuestionLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox uxInputBox;
-        private System.Windows.Forms.Button uxSubmit;
-        private System.Windows.Forms.ListBox uxChatBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private System.Windows.Forms.Button uxDisconnect;
-        private System.Windows.Forms.Button uxDelete;
-        private System.Windows.Forms.Button uxNextQuestion;
+        private LollipopTextBox uxQuestionText;
+        private LollipopLabel uxStudentLabel;
+        private LollipopLabel uxQuestionLabel;
+        private LollipopTextBox uxFriendPort;
+        private LollipopTextBox uxFriendIP;
+        private LollipopTextBox uxInputBox;
+        private LollipopTextBox uxInputQuestion;
+        private LollipopLabel uxChatLabel;
+        private LollipopTextBox uxLocalIP;
+        private LollipopTextBox uxLocalPort;
+        private LollipopLabel uxLocalLabel;
+        private LollipopLabel uxRemoteLabel;
+        private LollipopButton uxDisconnect;
+        private LollipopButton uxStart;
+        private LollipopButton uxNextQuestion;
+        private LollipopLabel uxTimer;
+        private LollipopLabel uxRecommended;
+        private LollipopLabel uxQuestionCount;
+        private LollipopButton uxSend;
+        private LollipopButton uxSubmit;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private LollipopTextBox uxChatBox;
     }
 }
 

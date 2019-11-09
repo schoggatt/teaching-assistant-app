@@ -14,13 +14,14 @@ using System.Net.Sockets;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using MaterialSkin.Controls;
 
 namespace TeachingAssistantApplication
 {
     /// <summary>
     /// Interface for the application.
     /// </summary>
-    public partial class TAChatBox : Form
+    public partial class TAChatBox : MaterialForm
     {
 
         //Class global assets
@@ -65,6 +66,11 @@ namespace TeachingAssistantApplication
             _isInstructor = isInstructor;
             queue = new QuestionQueue();
             InitializeComponent();
+            MaterialSkin.MaterialSkinManager manager = MaterialSkin.MaterialSkinManager.Instance;
+            manager.AddFormToManage(this);
+            manager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            manager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Red300, MaterialSkin.Primary.Red500, MaterialSkin.Primary.Red500, MaterialSkin.Accent.Red100, MaterialSkin.TextShade.WHITE);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             uxQuestionCount.Text += queue.Count.ToString();
             uxRecommended.Text = GetTime(out int seconds, out int minutes);
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
@@ -135,7 +141,7 @@ namespace TeachingAssistantApplication
                     ListBox.CheckForIllegalCrossThreadCalls = false;
                     this.uxChatBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        uxChatBox.Items.Add(receivedMessage);
+                        uxChatBox.Text = receivedMessage + "\n";
                     }));
                     
                 }
@@ -168,7 +174,7 @@ namespace TeachingAssistantApplication
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-                uxChatBox.Items.Add("-- CONNECTED --");
+                uxChatBox.Text = "-- CONNECTED --\n";
                 uxSend.Enabled = true;
                 uxInputBox.Focus();
             }
@@ -258,9 +264,9 @@ namespace TeachingAssistantApplication
         {
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            uxChatBox.Items.Add("-- DISCONNECTED --");
-            uxFriendIP.Clear();
-            uxFriendPort.Clear();
+            uxChatBox.Text = "-- DISCONNECTED --\n";
+            uxFriendIP.Text = "";
+            uxFriendPort.Text = "";
         }
 
         /// <summary>
@@ -282,7 +288,7 @@ namespace TeachingAssistantApplication
 
             SetResponse queueInfo = await client.SetAsync("Question Information/" + _username, questionInfo);
 
-            uxChatBox.Items.Add("-- QUESTION ADDED --");
+            uxChatBox.Text = "-- QUESTION ADDED --\n";
         }
 
         /// <summary>
@@ -302,13 +308,13 @@ namespace TeachingAssistantApplication
                 sck.Send(msg);
                 if(uxInputBox.Text != "")
                 {
-                    uxChatBox.Items.Add(GetTag() + _username + ": " + uxInputBox.Text);
+                    uxChatBox.Text = GetTag() + _username + ": " + uxInputBox.Text + "\n";
                 }
                 else
                 {
                     MessageBox.Show("Enter a Message.");
                 }
-                uxInputBox.Clear();
+                uxInputBox.Text = "";
             }
             catch (Exception ex)
             {
@@ -325,7 +331,7 @@ namespace TeachingAssistantApplication
         private void UxNextQuestion_Click(object sender, EventArgs e)
         {
             uxQuestionTimer.Enabled = false;
-            uxChatBox.Items.Add("-- NEW QUESTION CONVERSATIONS INITIATED --");
+            uxChatBox.Text = "-- NEW QUESTION CONVERSATIONS INITIATED --\n";
             _currentQuestion = queue.GetNextQuestion();
             uxQuestionLabel.Text = "Question: " + _currentQuestion.Question;
             uxStudentLabel.Text = "Student: " + _currentQuestion.Username;
@@ -348,6 +354,7 @@ namespace TeachingAssistantApplication
             }
             return "[Student] -- ";
         }
+
 
         /// <summary>
         /// Gets the aloted time for a question.
