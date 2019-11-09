@@ -51,7 +51,7 @@ namespace TeachingAssistantApplication
             {
                 MessageBox.Show("Please select either Instructor or Student");
             }
-            FirebaseResponse retrieve = await client.GetAsync("Login Information/" + uxLogin.Text);
+            FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
 
             Data obj = retrieve.ResultAs<Data>();
             var currUser = new Data
