@@ -57,7 +57,7 @@ namespace TeachingAssistantApplication
             };
 
             if(Data.IsEqual(currUser, obj))
-            {
+            { 
                 _username = obj.username;
                 UserInterface TA = new UserInterface(_username);
                 TA.ShowDialog();
