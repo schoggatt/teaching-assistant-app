@@ -19,7 +19,10 @@ namespace TeachingAssistantApplication
         EndPoint epLocal, epRemote;
         public UserInterface()
         {
+            QuestionQueue queue = new QuestionQueue();
             InitializeComponent();
+            uxQuestionCount.Text += queue.Count.ToString();
+            uxRecommended.Text += queue.GetTime();
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -68,18 +71,8 @@ namespace TeachingAssistantApplication
             }
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UxQuestionBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         //Start event handler
-        private void Button3_Click(object sender, EventArgs e)
+        private void UxStart_Click(object sender, EventArgs e)
         {
             try
             {
@@ -92,8 +85,8 @@ namespace TeachingAssistantApplication
                 byte[] buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-                button3.Enabled = false;
-                button3.Text = "Connected";
+                uxStart.Enabled = false;
+                uxStart.Text = "Connected";
                 uxSend.Enabled = true;
                 uxInputBox.Focus();
             }
@@ -119,11 +112,6 @@ namespace TeachingAssistantApplication
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void uxLogin_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

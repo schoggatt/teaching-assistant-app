@@ -33,37 +33,41 @@
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uxLocalBox = new System.Windows.Forms.GroupBox();
-            this.uxRemoteGroup = new System.Windows.Forms.GroupBox();
-            this.uxFriendIP = new System.Windows.Forms.TextBox();
-            this.uxLocalIP = new System.Windows.Forms.TextBox();
             this.uxLocalPort = new System.Windows.Forms.TextBox();
+            this.uxLocalIP = new System.Windows.Forms.TextBox();
+            this.uxRemoteGroup = new System.Windows.Forms.GroupBox();
             this.uxFriendPort = new System.Windows.Forms.TextBox();
+            this.uxFriendIP = new System.Windows.Forms.TextBox();
             this.uxInputBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.uxStart = new System.Windows.Forms.Button();
             this.uxSend = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uxQuestionCount = new System.Windows.Forms.Label();
+            this.uxRecommended = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.uxLocalBox.SuspendLayout();
             this.uxRemoteGroup.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxTextBox
             // 
-            this.uxTextBox.Location = new System.Drawing.Point(12, 141);
+            this.uxTextBox.Location = new System.Drawing.Point(12, 216);
             this.uxTextBox.Name = "uxTextBox";
             this.uxTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.uxTextBox.Size = new System.Drawing.Size(655, 414);
             this.uxTextBox.TabIndex = 0;
             this.uxTextBox.Text = "";
-            this.uxTextBox.TextChanged += new System.EventHandler(this.UxQuestionBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 121);
+            this.label1.Location = new System.Drawing.Point(12, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Question:";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -82,6 +86,20 @@
             this.uxLocalBox.TabStop = false;
             this.uxLocalBox.Text = "Local";
             // 
+            // uxLocalPort
+            // 
+            this.uxLocalPort.Location = new System.Drawing.Point(86, 49);
+            this.uxLocalPort.Name = "uxLocalPort";
+            this.uxLocalPort.Size = new System.Drawing.Size(100, 22);
+            this.uxLocalPort.TabIndex = 2;
+            // 
+            // uxLocalIP
+            // 
+            this.uxLocalIP.Location = new System.Drawing.Point(86, 21);
+            this.uxLocalIP.Name = "uxLocalIP";
+            this.uxLocalIP.Size = new System.Drawing.Size(100, 22);
+            this.uxLocalIP.TabIndex = 1;
+            // 
             // uxRemoteGroup
             // 
             this.uxRemoteGroup.Controls.Add(this.uxFriendPort);
@@ -93,27 +111,6 @@
             this.uxRemoteGroup.TabStop = false;
             this.uxRemoteGroup.Text = "Remote";
             // 
-            // uxFriendIP
-            // 
-            this.uxFriendIP.Location = new System.Drawing.Point(86, 21);
-            this.uxFriendIP.Name = "uxFriendIP";
-            this.uxFriendIP.Size = new System.Drawing.Size(100, 22);
-            this.uxFriendIP.TabIndex = 0;
-            // 
-            // uxLocalIP
-            // 
-            this.uxLocalIP.Location = new System.Drawing.Point(86, 21);
-            this.uxLocalIP.Name = "uxLocalIP";
-            this.uxLocalIP.Size = new System.Drawing.Size(100, 22);
-            this.uxLocalIP.TabIndex = 1;
-            // 
-            // uxLocalPort
-            // 
-            this.uxLocalPort.Location = new System.Drawing.Point(86, 49);
-            this.uxLocalPort.Name = "uxLocalPort";
-            this.uxLocalPort.Size = new System.Drawing.Size(100, 22);
-            this.uxLocalPort.TabIndex = 2;
-            // 
             // uxFriendPort
             // 
             this.uxFriendPort.Location = new System.Drawing.Point(86, 49);
@@ -121,40 +118,95 @@
             this.uxFriendPort.Size = new System.Drawing.Size(100, 22);
             this.uxFriendPort.TabIndex = 3;
             // 
+            // uxFriendIP
+            // 
+            this.uxFriendIP.Location = new System.Drawing.Point(86, 21);
+            this.uxFriendIP.Name = "uxFriendIP";
+            this.uxFriendIP.Size = new System.Drawing.Size(100, 22);
+            this.uxFriendIP.TabIndex = 0;
+            // 
             // uxInputBox
             // 
-            this.uxInputBox.Location = new System.Drawing.Point(12, 561);
+            this.uxInputBox.Location = new System.Drawing.Point(12, 636);
             this.uxInputBox.Name = "uxInputBox";
             this.uxInputBox.Size = new System.Drawing.Size(522, 22);
             this.uxInputBox.TabIndex = 11;
             // 
-            // button3
+            // uxStart
             // 
-            this.button3.Location = new System.Drawing.Point(540, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 44);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Start";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.uxStart.Location = new System.Drawing.Point(540, 22);
+            this.uxStart.Name = "uxStart";
+            this.uxStart.Size = new System.Drawing.Size(127, 44);
+            this.uxStart.TabIndex = 12;
+            this.uxStart.Text = "Start";
+            this.uxStart.UseVisualStyleBackColor = true;
+            this.uxStart.Click += new System.EventHandler(this.UxStart_Click);
             // 
             // uxSend
             // 
-            this.uxSend.Location = new System.Drawing.Point(540, 561);
+            this.uxSend.Location = new System.Drawing.Point(540, 636);
             this.uxSend.Name = "uxSend";
-            this.uxSend.Size = new System.Drawing.Size(127, 44);
+            this.uxSend.Size = new System.Drawing.Size(127, 50);
             this.uxSend.TabIndex = 13;
             this.uxSend.Text = "Send";
             this.uxSend.UseVisualStyleBackColor = true;
             this.uxSend.Click += new System.EventHandler(this.UxSend_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 664);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(522, 22);
+            this.textBox1.TabIndex = 14;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uxRecommended);
+            this.groupBox1.Controls.Add(this.uxQuestionCount);
+            this.groupBox1.Location = new System.Drawing.Point(15, 110);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(192, 72);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Queue Statistics";
+            // 
+            // uxQuestionCount
+            // 
+            this.uxQuestionCount.AutoSize = true;
+            this.uxQuestionCount.Location = new System.Drawing.Point(6, 18);
+            this.uxQuestionCount.Name = "uxQuestionCount";
+            this.uxQuestionCount.Size = new System.Drawing.Size(108, 17);
+            this.uxQuestionCount.TabIndex = 15;
+            this.uxQuestionCount.Text = "# of Questions: ";
+            // 
+            // uxRecommended
+            // 
+            this.uxRecommended.AutoSize = true;
+            this.uxRecommended.Location = new System.Drawing.Point(6, 35);
+            this.uxRecommended.Name = "uxRecommended";
+            this.uxRecommended.Size = new System.Drawing.Size(146, 17);
+            this.uxRecommended.TabIndex = 16;
+            this.uxRecommended.Text = "Recommended Time: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(537, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 17);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Timer:";
+            // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 668);
+            this.ClientSize = new System.Drawing.Size(951, 691);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.uxSend);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.uxStart);
             this.Controls.Add(this.uxInputBox);
             this.Controls.Add(this.uxRemoteGroup);
             this.Controls.Add(this.uxLocalBox);
@@ -166,6 +218,8 @@
             this.uxLocalBox.PerformLayout();
             this.uxRemoteGroup.ResumeLayout(false);
             this.uxRemoteGroup.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,8 +237,13 @@
         private System.Windows.Forms.TextBox uxFriendPort;
         private System.Windows.Forms.TextBox uxFriendIP;
         private System.Windows.Forms.TextBox uxInputBox;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button uxStart;
         private System.Windows.Forms.Button uxSend;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label uxRecommended;
+        private System.Windows.Forms.Label uxQuestionCount;
+        private System.Windows.Forms.Label label4;
     }
 }
 

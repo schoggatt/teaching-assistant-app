@@ -11,6 +11,14 @@ namespace TeachingAssistantApplication
         private Queue<QuestionItem> _questionQueue = new Queue<QuestionItem>();
         QuestionItem _current = null;
 
+        public int Count
+        {
+            get
+            {
+                return _questionQueue.Count;
+            }
+        }
+
         /// <summary>
         /// Adds a new question to the queue
         /// </summary>
@@ -37,6 +45,17 @@ namespace TeachingAssistantApplication
                 return _questionQueue.Dequeue();
             }
             return null;
+        }
+
+
+        public int GetTime()
+        {
+            int count = _questionQueue.Count;
+            if(count == 0)
+            {
+                return 0;
+            }
+            return (60 * 60 * 1000 * 2) / count;
         }
 
         
