@@ -56,7 +56,7 @@
             this.uxLoginButton.Location = new System.Drawing.Point(70, 294);
             this.uxLoginButton.Name = "uxLoginButton";
             this.uxLoginButton.Size = new System.Drawing.Size(100, 40);
-            this.uxLoginButton.TabIndex = 3;
+            this.uxLoginButton.TabIndex = 9;
             this.uxLoginButton.Text = "Login";
             this.uxLoginButton.UseVisualStyleBackColor = true;
             this.uxLoginButton.Click += new System.EventHandler(this.UxLoginButton_Click);
@@ -110,7 +110,7 @@
             this.uxPassword.Name = "uxPassword";
             this.uxPassword.PasswordChar = '•';
             this.uxPassword.Size = new System.Drawing.Size(175, 30);
-            this.uxPassword.TabIndex = 9;
+            this.uxPassword.TabIndex = 3;
             // 
             // uxPasswordLbl
             // 
@@ -137,7 +137,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(91, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 106);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
