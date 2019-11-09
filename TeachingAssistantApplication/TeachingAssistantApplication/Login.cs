@@ -27,6 +27,10 @@ namespace TeachingAssistantApplication
 
         public string _username;
 
+        public bool _IsInstructor;
+
+        public FirebaseResponse retrieve;
+
         public Login()
         {
             InitializeComponent();
@@ -49,20 +53,29 @@ namespace TeachingAssistantApplication
         {
             
             FirebaseResponse retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
-
-            Data obj = retrieve.ResultAs<Data>();
+            if (uxInstructorSelection.Checked)
+            {
+                retrieve = await client.GetAsync("Instructor Information/" + uxLogin.Text);
+                _IsInstructor = true;
+            }
+            else if (uxStudentSelection.Checked)
+            {
+                retrieve = await client.GetAsync("Student Information/" + uxLogin.Text);
+            }
+            Data userData = retrieve.ResultAs<Data>();
             var currUser = new Data
             {
-                username = uxLogin.Text,
-                password = uxPassword.Text
+                username = uxLogin.Text.Trim(),
+                password = uxPassword.Text.Trim()
             };
             if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
             {
                 MessageBox.Show("Please select either instructor or student");
             }
-            else if (Data.IsEqual(currUser, obj))
+            else if (Data.IsEqual(currUser, userData))
             {
-                _username = obj.username;
+                this.Hide();
+                _username = userData.username;
                 UserInterface TA = new UserInterface(_username);
                 TA.ShowDialog();
                 this.Close();
@@ -71,9 +84,6 @@ namespace TeachingAssistantApplication
             {
                 MessageBox.Show("Username or password not found.");
             }
-            
-            
-            
         }
 
         private async void UxRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -102,8 +112,8 @@ namespace TeachingAssistantApplication
 
             var newUser = new Data
             {
-                username = uxLogin.Text,
-                password = uxPassword.Text
+                username = uxLogin.Text.Trim(),
+                password = uxPassword.Text.Trim()
             };
 
             if (uxStudentSelection.Checked)
