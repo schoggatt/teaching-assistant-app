@@ -24,11 +24,6 @@
                 error = "Username and password do not match.";
                 return false;
             }
-            else
-            {
-                error = "Please make sure you picked either Instructor or Student";
-                return false;
-            }
             return true;
         }
     }

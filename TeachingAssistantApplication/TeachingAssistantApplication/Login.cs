@@ -47,26 +47,29 @@ namespace TeachingAssistantApplication
 
         private async void UxLoginButton_Click(object sender, EventArgs e)
         {
-
-            FirebaseResponse retrieve = await client.GetAsync("Login Information/" + uxLogin.Text);
-            Data obj = retrieve.ResultAs<Data>();
-            var currUser = new Data
+            if(uxInstructorSelection.Checked || uxStudentSelection.Checked)
             {
-                username = uxLogin.Text,
-                password = uxPassword.Text
-            };
+                FirebaseResponse retrieve = await client.GetAsync("Login Information/" + uxLogin.Text);
+                Data obj = retrieve.ResultAs<Data>();
+                var currUser = new Data
+                {
+                    username = uxLogin.Text,
+                    password = uxPassword.Text
+                };
 
-            if(Data.IsEqual(currUser, obj))
-            { 
-                _username = obj.username;
-                UserInterface TA = new UserInterface(_username);
-                TA.ShowDialog();
-                Application.Exit();
+                if (Data.IsEqual(currUser, obj))
+                {
+                    _username = obj.username;
+                    UserInterface TA = new UserInterface(_username);
+                    TA.ShowDialog();
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show("Error: " + Data.error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Error: " + Data.error);
-            }
+            
             
         }
 
@@ -92,7 +95,7 @@ namespace TeachingAssistantApplication
                 MessageBox.Show("Please pick Instructor or Student");
             }
 
-            //Add a lot more cases to check
+            //Add a lot more check cases
 
             var newUser = new Data
             {
