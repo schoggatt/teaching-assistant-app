@@ -19,8 +19,8 @@ namespace TeachingAssistantApplication
         EndPoint epLocal, epRemote;
         QuestionQueue queue;
 
-        int m = 1;
-        int s = 5;
+        int m = 0;
+        int s = 0;
         public UserInterface()
         {
             queue = new QuestionQueue();
@@ -29,7 +29,7 @@ namespace TeachingAssistantApplication
             uxRecommended.Text += queue.GetTime();
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
             Console.WriteLine("Test");
-            uxQuestionTimer.Enabled = true;
+            //uxQuestionTimer.Enabled = true;
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -105,15 +105,15 @@ namespace TeachingAssistantApplication
 
         private void UxQuestionTimer_Tick(object sender, EventArgs e)
         {
-            if(s == 0)
+            if (m <= 0 && s <= 0)
+            {
+                uxQuestionTimer.Enabled = false;
+                MessageBox.Show("Timer is done.");
+            }
+            if (s == 0)
             {
                 m--;
                 s = 60;
-            }
-            if (m <= 0 && s <= 0)
-            {
-                uxQuestionCount.Enabled = false;
-                MessageBox.Show("Timer is done.");
             }
             else
             {

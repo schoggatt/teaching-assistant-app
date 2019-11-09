@@ -20,5 +20,10 @@ namespace TeachingAssistantApplication
         {
             //This is a test for branch comittment
         }
+
+        private void UxLoginButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
