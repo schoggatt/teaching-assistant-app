@@ -60,7 +60,7 @@ namespace TeachingAssistantApplication
                 password = uxPassword.Text
             };
 
-            SetResponse response = await client.SetTaskAsync("Login Information/" + uxLogin.Text, data);
+            SetResponse response = await client.SetAsync("Login Information/" + uxLogin.Text, data);
         }
     }
 }
