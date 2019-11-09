@@ -11,10 +11,11 @@ using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using MaterialSkin.Controls;
 
 namespace TeachingAssistantApplication
 {
-    public partial class Login : Form
+    public partial class Login : MaterialForm
     {
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -34,6 +35,11 @@ namespace TeachingAssistantApplication
         public Login()
         {
             InitializeComponent();
+            MaterialSkin.MaterialSkinManager manager = MaterialSkin.MaterialSkinManager.Instance;
+            manager.AddFormToManage(this);
+            manager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            manager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Red300, MaterialSkin.Primary.Red500, MaterialSkin.Primary.Red500, MaterialSkin.Accent.Red100, MaterialSkin.TextShade.WHITE);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -101,7 +107,7 @@ namespace TeachingAssistantApplication
                 else
                 {
                     MessageBox.Show("Username or password not found.");
-                    uxPassword.Clear();
+                    uxPassword.Text = "";
                 }
             }
         }
