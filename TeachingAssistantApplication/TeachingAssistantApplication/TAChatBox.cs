@@ -168,8 +168,14 @@ namespace TeachingAssistantApplication
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
         }
 
-        private void ServerTimer_Tick(object sender, EventArgs e)
+        private async void ServerTimer_Tick(object sender, EventArgs e)
         {
+            //Get the question from the database
+            //Push the question into the queue
+            //Delete the question 
+
+            FirebaseResponse response = await client.DeleteAsync("Question/" + _username);
+            QuestionInformation userData = response.ResultAs<QuestionInformation>();
 
         }
 
@@ -185,7 +191,6 @@ namespace TeachingAssistantApplication
         //Submit button
         private async void UxSubmit_Click(object sender, EventArgs e)
         {
-            //Get: _username " " IP " " Question
             var questionInfo = new QuestionInformation
             {
                 IP = GetLocalIP(),
