@@ -34,6 +34,9 @@
             this.uxQuestionTimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.uxChatBox = new LollipopTextBox();
+            this.uxRemoteLabel = new LollipopLabel();
             this.uxSubmit = new LollipopButton();
             this.uxSend = new LollipopButton();
             this.uxQuestionCount = new LollipopLabel();
@@ -42,7 +45,6 @@
             this.uxNextQuestion = new LollipopButton();
             this.uxStart = new LollipopButton();
             this.uxDisconnect = new LollipopButton();
-            this.uxRemoteLabel = new LollipopLabel();
             this.uxFriendPort = new LollipopTextBox();
             this.uxLocalLabel = new LollipopLabel();
             this.uxFriendIP = new LollipopTextBox();
@@ -54,8 +56,6 @@
             this.uxQuestionLabel = new LollipopLabel();
             this.uxStudentLabel = new LollipopLabel();
             this.uxQuestionText = new LollipopTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.uxChatBox = new LollipopTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +70,43 @@
             this.uxQuestionTimer.Interval = 1000;
             this.uxQuestionTimer.Tick += new System.EventHandler(this.UxQuestionTimer_Tick);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(-7, 32);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(756, 111);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 42;
+            this.pictureBox2.TabStop = false;
+            // 
+            // uxChatBox
+            // 
+            this.uxChatBox.FocusedColor = "#ff0033";
+            this.uxChatBox.FontColor = "#999999";
+            this.uxChatBox.IsEnabled = true;
+            this.uxChatBox.Location = new System.Drawing.Point(12, 324);
+            this.uxChatBox.MaxLength = 32767;
+            this.uxChatBox.Multiline = true;
+            this.uxChatBox.Name = "uxChatBox";
+            this.uxChatBox.ReadOnly = false;
+            this.uxChatBox.Size = new System.Drawing.Size(698, 340);
+            this.uxChatBox.TabIndex = 43;
+            this.uxChatBox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uxChatBox.UseSystemPasswordChar = false;
+            // 
+            // uxRemoteLabel
+            // 
+            this.uxRemoteLabel.AutoSize = true;
+            this.uxRemoteLabel.BackColor = System.Drawing.Color.Transparent;
+            this.uxRemoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxRemoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.uxRemoteLabel.Location = new System.Drawing.Point(239, 88);
+            this.uxRemoteLabel.Name = "uxRemoteLabel";
+            this.uxRemoteLabel.Size = new System.Drawing.Size(67, 20);
+            this.uxRemoteLabel.TabIndex = 32;
+            this.uxRemoteLabel.Text = "Remote";
+            // 
             // uxSubmit
             // 
             this.uxSubmit.BackColor = System.Drawing.Color.Transparent;
@@ -80,7 +117,7 @@
             this.uxSubmit.Size = new System.Drawing.Size(113, 50);
             this.uxSubmit.TabIndex = 41;
             this.uxSubmit.Text = "Submit Question";
-            this.uxSubmit.Click += new System.EventHandler(UxSubmit_Click);
+            this.uxSubmit.Click += new System.EventHandler(this.UxSubmit_Click);
             // 
             // uxSend
             // 
@@ -158,6 +195,7 @@
             // 
             this.uxDisconnect.BackColor = System.Drawing.Color.Transparent;
             this.uxDisconnect.BGColor = "#ff0033";
+            this.uxDisconnect.Enabled = false;
             this.uxDisconnect.FontColor = "#ffffff";
             this.uxDisconnect.Location = new System.Drawing.Point(478, 96);
             this.uxDisconnect.Name = "uxDisconnect";
@@ -165,18 +203,6 @@
             this.uxDisconnect.TabIndex = 33;
             this.uxDisconnect.Text = "Disconnect";
             this.uxDisconnect.Click += new System.EventHandler(this.UxDisconnect_Click);
-            // 
-            // uxRemoteLabel
-            // 
-            this.uxRemoteLabel.AutoSize = true;
-            this.uxRemoteLabel.BackColor = System.Drawing.Color.Transparent;
-            this.uxRemoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.uxRemoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxRemoteLabel.Location = new System.Drawing.Point(239, 88);
-            this.uxRemoteLabel.Name = "uxRemoteLabel";
-            this.uxRemoteLabel.Size = new System.Drawing.Size(67, 20);
-            this.uxRemoteLabel.TabIndex = 32;
-            this.uxRemoteLabel.Text = "Remote";
             // 
             // uxFriendPort
             // 
@@ -332,31 +358,6 @@
             this.uxQuestionText.TabIndex = 3;
             this.uxQuestionText.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxQuestionText.UseSystemPasswordChar = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-7, 32);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(756, 111);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 42;
-            this.pictureBox2.TabStop = false;
-            // 
-            // uxChatBox
-            // 
-            this.uxChatBox.FocusedColor = "#ff0033";
-            this.uxChatBox.FontColor = "#999999";
-            this.uxChatBox.IsEnabled = true;
-            this.uxChatBox.Location = new System.Drawing.Point(12, 324);
-            this.uxChatBox.MaxLength = 32767;
-            this.uxChatBox.Multiline = true;
-            this.uxChatBox.Name = "uxChatBox";
-            this.uxChatBox.ReadOnly = false;
-            this.uxChatBox.Size = new System.Drawing.Size(698, 340);
-            this.uxChatBox.TabIndex = 43;
-            this.uxChatBox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.uxChatBox.UseSystemPasswordChar = false;
             // 
             // TAChatBox
             // 

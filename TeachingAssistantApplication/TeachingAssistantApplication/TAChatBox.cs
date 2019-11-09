@@ -61,7 +61,6 @@ namespace TeachingAssistantApplication
             _serverTimer.Interval = 5000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
 
-
             _username = username;
             _isInstructor = isInstructor;
             queue = new QuestionQueue();
@@ -140,7 +139,7 @@ namespace TeachingAssistantApplication
                     ListBox.CheckForIllegalCrossThreadCalls = false;
                     this.uxChatBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        uxChatBox.Text = receivedMessage + "\n";
+                        uxChatBox.Text += receivedMessage + "\r\n";
                     }));
                     
                 }
@@ -173,9 +172,11 @@ namespace TeachingAssistantApplication
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-                uxChatBox.Text = "-- CONNECTED --\n";
+                uxChatBox.Text += "-- CONNECTED --\r\n";
                 uxSend.Enabled = true;
                 uxInputBox.Focus();
+                uxStart.Enabled = false;
+                uxDisconnect.Enabled = true;
             }
             catch(Exception ex)
             {
@@ -215,16 +216,6 @@ namespace TeachingAssistantApplication
         /// <param name="e"></param> The event
         private async void ServerTimer_Tick(object sender, EventArgs e)
         {
-
-            //Iterate through the questions database from top to bottom
-            //For each question branch make a new question
-            //Add it to the teacher queue
-            //Delete the branch
-
-            string usern;
-            string ip;
-            string question;
-
             FirebaseResponse retrieve = await client.GetAsync("Question Information/" + _username);
             QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
 
@@ -274,9 +265,11 @@ namespace TeachingAssistantApplication
         {
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            uxChatBox.Text = "-- DISCONNECTED --\n";
+            uxChatBox.Text += "-- DISCONNECTED --\r\n";
             uxFriendIP.Text = "";
             uxFriendPort.Text = "";
+            uxStart.Enabled = true;
+            uxDisconnect.Enabled = false;
         }
 
         /// <summary>
@@ -297,11 +290,9 @@ namespace TeachingAssistantApplication
 
 
             SetResponse queueInfo = await client.SetAsync("Question Information/" + _username, questionInfo);
-
-            uxChatBox.Text = "-- QUESTION ADDED --\n";
             
 
-            uxChatBox.Text += ("-- QUESTION ADDED --\n");
+            uxChatBox.Text += ("-- QUESTION ADDED --\r\n");
         }
 
         /// <summary>
@@ -321,7 +312,7 @@ namespace TeachingAssistantApplication
                 sck.Send(msg);
                 if(uxInputBox.Text != "")
                 {
-                    uxChatBox.Text = GetTag() + _username + ": " + uxInputBox.Text + "\n";
+                    uxChatBox.Text +=  GetTag() + _username + ": " + uxInputBox.Text + "\r\n";
                 }
                 else
                 {
@@ -344,7 +335,7 @@ namespace TeachingAssistantApplication
         private void UxNextQuestion_Click(object sender, EventArgs e)
         {
             uxQuestionTimer.Enabled = false;
-            uxChatBox.Text = "-- NEW QUESTION CONVERSATIONS INITIATED --\n";
+            uxChatBox.Text += "-- NEW QUESTION CONVERSATIONS INITIATED --\r\n";
             _currentQuestion = queue.GetNextQuestion();
             uxQuestionLabel.Text = "Question: " + _currentQuestion.Question;
             uxStudentLabel.Text = "Student: " + _currentQuestion.Username;
