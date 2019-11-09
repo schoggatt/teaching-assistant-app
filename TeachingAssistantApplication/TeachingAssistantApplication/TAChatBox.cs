@@ -35,10 +35,17 @@ namespace TeachingAssistantApplication
         string _username;
         bool _isInstructor;
 
+        Timer _serverTimer;
+
         int m = 0;
         int s = 0;
         public TAChatBox(string username, bool isInstructor)
         {
+            _serverTimer.Enabled = true;
+            _serverTimer.Interval = 10000;
+            _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
+
+
             _username = username;
             _isInstructor = isInstructor;
             queue = new QuestionQueue();
@@ -159,6 +166,11 @@ namespace TeachingAssistantApplication
                 s--;
             }
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
+        }
+
+        private void ServerTimer_Tick(object sender, EventArgs e)
+        {
+
         }
 
         private void UxDisconnect_Click(object sender, EventArgs e)

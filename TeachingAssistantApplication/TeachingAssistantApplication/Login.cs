@@ -65,6 +65,11 @@ namespace TeachingAssistantApplication
             }
             else
             {
+                if (!(uxInstructorSelection.Checked || uxStudentSelection.Checked))
+                {
+                    MessageBox.Show("Please select either instructor or student");
+                }
+
                 if (uxInstructorSelection.Checked)
                 {
                     retrieve = await client.GetAsync("Instructor Information/" + uxUsername.Text);
