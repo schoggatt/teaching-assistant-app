@@ -50,7 +50,6 @@
             this.uxFriendIP = new LollipopTextBox();
             this.uxLocalPort = new LollipopTextBox();
             this.uxLocalIP = new LollipopTextBox();
-            this.uxChatLabel = new LollipopLabel();
             this.uxInputQuestion = new LollipopTextBox();
             this.uxInputBox = new LollipopTextBox();
             this.uxQuestionLabel = new LollipopLabel();
@@ -276,18 +275,6 @@
             this.uxLocalIP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxLocalIP.UseSystemPasswordChar = false;
             // 
-            // uxChatLabel
-            // 
-            this.uxChatLabel.AutoSize = true;
-            this.uxChatLabel.BackColor = System.Drawing.Color.Transparent;
-            this.uxChatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.uxChatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxChatLabel.Location = new System.Drawing.Point(12, 301);
-            this.uxChatLabel.Name = "uxChatLabel";
-            this.uxChatLabel.Size = new System.Drawing.Size(54, 20);
-            this.uxChatLabel.TabIndex = 30;
-            this.uxChatLabel.Text = "Chat: ";
-            // 
             // uxInputQuestion
             // 
             this.uxInputQuestion.FocusedColor = "#ff0033";
@@ -379,7 +366,6 @@
             this.Controls.Add(this.uxFriendIP);
             this.Controls.Add(this.uxLocalPort);
             this.Controls.Add(this.uxLocalIP);
-            this.Controls.Add(this.uxChatLabel);
             this.Controls.Add(this.uxInputQuestion);
             this.Controls.Add(this.uxInputBox);
             this.Controls.Add(this.uxQuestionLabel);
@@ -409,7 +395,6 @@
         private LollipopTextBox uxFriendIP;
         private LollipopTextBox uxInputBox;
         private LollipopTextBox uxInputQuestion;
-        private LollipopLabel uxChatLabel;
         private LollipopTextBox uxLocalIP;
         private LollipopTextBox uxLocalPort;
         private LollipopLabel uxLocalLabel;
