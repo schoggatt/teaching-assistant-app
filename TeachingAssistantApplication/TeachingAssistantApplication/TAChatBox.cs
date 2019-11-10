@@ -225,20 +225,20 @@ namespace TeachingAssistantApplication
             //Call a helper to get all of the student usernames and place each one in a queue
             if (userData != null && quesData != null)
             { 
-                Queue<string> questions = GetQuestion(quesData.question);
-                Queue<string> passQuestions = new Queue<string>();
+                Stack<string> questions = GetQuestion(quesData.question);
+                Stack<string> passQuestions = new Stack<string>();
 
                 if (_isInstructor)
                 {
                     while (questions.Count > 0)
                     {
-                        if (questions.Peek() == String.Empty)
+                        if (questions.Peek() == string.Empty)
                         {
-                            questions.Dequeue();
+                            questions.Pop();
                         }
                         else
                         {
-                            queue.AddQuestion(passQuestions.Dequeue(), userData.IP, userData.username);
+                            queue.AddQuestion(passQuestions.Pop(), userData.IP, userData.username);
                         }
                     }
                     uxQuestionCount.Text = "# of Questions: " + queue.Count.ToString();
@@ -357,12 +357,12 @@ namespace TeachingAssistantApplication
             return "[Student] -- ";
         }
 
-        private Queue<string> GetQuestion(string username)
+        private Stack<string> GetQuestion(string username)
         {
             FirebaseResponse retrieve = client.Get("Question Information/" + username);
             QuestionInformation quesData = retrieve.ResultAs<QuestionInformation>();
-            Queue<string> userinfo = new Queue<string>();
-            userinfo.Enqueue(quesData.question);
+            Stack<string> userinfo = new Stack<string>();
+            userinfo.Push(quesData.question);
             return userinfo;
         }
 

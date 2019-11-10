@@ -59,7 +59,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(92, 51);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 106);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -72,7 +72,7 @@
             this.uxRegisterLink.BGColor = "#ff0033";
             this.uxRegisterLink.FontColor = "#ffffff";
             this.uxRegisterLink.Location = new System.Drawing.Point(108, 327);
-            this.uxRegisterLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxRegisterLink.Margin = new System.Windows.Forms.Padding(2);
             this.uxRegisterLink.Name = "uxRegisterLink";
             this.uxRegisterLink.Size = new System.Drawing.Size(107, 33);
             this.uxRegisterLink.TabIndex = 22;
@@ -85,7 +85,7 @@
             this.uxExit.BGColor = "#ff0033";
             this.uxExit.FontColor = "#ffffff";
             this.uxExit.Location = new System.Drawing.Point(167, 289);
-            this.uxExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxExit.Margin = new System.Windows.Forms.Padding(2);
             this.uxExit.Name = "uxExit";
             this.uxExit.Size = new System.Drawing.Size(107, 33);
             this.uxExit.TabIndex = 21;
@@ -98,7 +98,7 @@
             this.uxLogin.BGColor = "#ff0033";
             this.uxLogin.FontColor = "#ffffff";
             this.uxLogin.Location = new System.Drawing.Point(50, 289);
-            this.uxLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxLogin.Margin = new System.Windows.Forms.Padding(2);
             this.uxLogin.Name = "uxLogin";
             this.uxLogin.Size = new System.Drawing.Size(107, 33);
             this.uxLogin.TabIndex = 20;
@@ -111,7 +111,7 @@
             this.uxPassword.FontColor = "#999999";
             this.uxPassword.IsEnabled = true;
             this.uxPassword.Location = new System.Drawing.Point(82, 246);
-            this.uxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.uxPassword.MaxLength = 32767;
             this.uxPassword.Multiline = false;
             this.uxPassword.Name = "uxPassword";
@@ -127,7 +127,7 @@
             this.uxUsername.FontColor = "#999999";
             this.uxUsername.IsEnabled = true;
             this.uxUsername.Location = new System.Drawing.Point(82, 212);
-            this.uxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxUsername.Margin = new System.Windows.Forms.Padding(2);
             this.uxUsername.MaxLength = 32767;
             this.uxUsername.Multiline = false;
             this.uxUsername.Name = "uxUsername";
@@ -168,7 +168,7 @@
             this.uxStudentSelection.AutoSize = true;
             this.uxStudentSelection.CheckColor = "#ff0033";
             this.uxStudentSelection.Location = new System.Drawing.Point(167, 172);
-            this.uxStudentSelection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxStudentSelection.Margin = new System.Windows.Forms.Padding(2);
             this.uxStudentSelection.Name = "uxStudentSelection";
             this.uxStudentSelection.Size = new System.Drawing.Size(72, 19);
             this.uxStudentSelection.TabIndex = 14;
@@ -181,7 +181,7 @@
             this.uxInstructorSelection.AutoSize = true;
             this.uxInstructorSelection.CheckColor = "#ff0033";
             this.uxInstructorSelection.Location = new System.Drawing.Point(82, 172);
-            this.uxInstructorSelection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxInstructorSelection.Margin = new System.Windows.Forms.Padding(2);
             this.uxInstructorSelection.Name = "uxInstructorSelection";
             this.uxInstructorSelection.Size = new System.Drawing.Size(84, 19);
             this.uxInstructorSelection.TabIndex = 13;
@@ -193,7 +193,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 24);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(312, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -151,6 +151,8 @@ namespace TeachingAssistantApplication
                 SetResponse instructResponse = await client.SetAsync("Instructor Information/" + uxUsername.Text, newUser);
             }
 
+            uxUsername.Text = string.Empty;
+            uxPassword.Text = string.Empty;
 
         }
 
