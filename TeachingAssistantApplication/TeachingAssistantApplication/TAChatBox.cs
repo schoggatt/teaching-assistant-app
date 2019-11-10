@@ -58,7 +58,7 @@ namespace TeachingAssistantApplication
         {
             _serverTimer = new Timer();
             _serverTimer.Enabled = true;
-            _serverTimer.Interval = 30000;
+            _serverTimer.Interval = 15000;
             _serverTimer.Tick += new EventHandler(ServerTimer_Tick);
 
             _username = username;
@@ -73,6 +73,7 @@ namespace TeachingAssistantApplication
             uxQuestionCount.Text += queue.Count.ToString();
             uxRecommended.Text = GetTime(out int seconds, out int minutes);
             uxTimer.Text = "Timer " + string.Format("{0:#0}:{1:00}", m, s);
+            uxChatBox.Enabled = false;
 
             try
             {
@@ -222,12 +223,12 @@ namespace TeachingAssistantApplication
             UserInformation userData = retrieveUser.ResultAs<UserInformation>();
 
             //Call a helper to get all of the student usernames and place each one in a queue
-            if (userData != null)
+            if (userData != null && quesData != null)
             { 
-                Queue<string> questions = GetQuestion(quesData.username);
+                Queue<string> questions = GetQuestion(quesData.question);
                 Queue<string> passQuestions = new Queue<string>();
 
-                if (_isInstructor && userData.Count > 0)
+                if (_isInstructor)
                 {
                     while (questions.Count > 0)
                     {
@@ -237,13 +238,11 @@ namespace TeachingAssistantApplication
                         }
                         else
                         {
-                            passQuestions.Enqueue(questions.Dequeue());
+                            queue.AddQuestion(passQuestions.Dequeue(), userData.IP, userData.username);
                         }
                     }
-                    queue.AddQuestion(passQuestions.Dequeue(), userData.IP, userData.username);
                     uxQuestionCount.Text = "# of Questions: " + queue.Count.ToString();
-                    Console.WriteLine(passQuestions.Dequeue());
-                    FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
+                    FirebaseResponse delete = await client.DeleteAsync("Question Information/" +  _username);
                 }
                 else if (!_isInstructor)
                 {
@@ -279,7 +278,8 @@ namespace TeachingAssistantApplication
             var questionInfo = new QuestionInformation
             {
                 username = _username,
-                question = uxInputQuestion.Text
+                question = uxInputQuestion.Text,
+                Count = _count++
             };
             SetResponse queueInfo = await client.SetAsync("Question Information/" + questionInfo.question, questionInfo);
             var userInfo = new UserInformation

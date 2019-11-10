@@ -72,9 +72,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-7, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(-5, 26);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(756, 111);
+            this.pictureBox2.Size = new System.Drawing.Size(567, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 42;
             this.pictureBox2.TabStop = false;
@@ -84,12 +85,13 @@
             this.uxChatBox.FocusedColor = "#ff0033";
             this.uxChatBox.FontColor = "#999999";
             this.uxChatBox.IsEnabled = true;
-            this.uxChatBox.Location = new System.Drawing.Point(12, 324);
+            this.uxChatBox.Location = new System.Drawing.Point(9, 263);
+            this.uxChatBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxChatBox.MaxLength = 32767;
             this.uxChatBox.Multiline = true;
             this.uxChatBox.Name = "uxChatBox";
-            this.uxChatBox.ReadOnly = false;
-            this.uxChatBox.Size = new System.Drawing.Size(698, 340);
+            this.uxChatBox.ReadOnly = true;
+            this.uxChatBox.Size = new System.Drawing.Size(524, 276);
             this.uxChatBox.TabIndex = 43;
             this.uxChatBox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxChatBox.UseSystemPasswordChar = false;
@@ -100,9 +102,10 @@
             this.uxRemoteLabel.BackColor = System.Drawing.Color.Transparent;
             this.uxRemoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxRemoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxRemoteLabel.Location = new System.Drawing.Point(239, 88);
+            this.uxRemoteLabel.Location = new System.Drawing.Point(179, 72);
+            this.uxRemoteLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxRemoteLabel.Name = "uxRemoteLabel";
-            this.uxRemoteLabel.Size = new System.Drawing.Size(67, 20);
+            this.uxRemoteLabel.Size = new System.Drawing.Size(57, 17);
             this.uxRemoteLabel.TabIndex = 32;
             this.uxRemoteLabel.Text = "Remote";
             // 
@@ -111,9 +114,10 @@
             this.uxSubmit.BackColor = System.Drawing.Color.Transparent;
             this.uxSubmit.BGColor = "#ff0033";
             this.uxSubmit.FontColor = "#ffffff";
-            this.uxSubmit.Location = new System.Drawing.Point(597, 726);
+            this.uxSubmit.Location = new System.Drawing.Point(448, 590);
+            this.uxSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxSubmit.Name = "uxSubmit";
-            this.uxSubmit.Size = new System.Drawing.Size(113, 50);
+            this.uxSubmit.Size = new System.Drawing.Size(85, 41);
             this.uxSubmit.TabIndex = 41;
             this.uxSubmit.Text = "Submit Question";
             this.uxSubmit.Click += new System.EventHandler(this.UxSubmit_Click);
@@ -123,9 +127,10 @@
             this.uxSend.BackColor = System.Drawing.Color.Transparent;
             this.uxSend.BGColor = "#ff0033";
             this.uxSend.FontColor = "#ffffff";
-            this.uxSend.Location = new System.Drawing.Point(597, 670);
+            this.uxSend.Location = new System.Drawing.Point(448, 544);
+            this.uxSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxSend.Name = "uxSend";
-            this.uxSend.Size = new System.Drawing.Size(113, 50);
+            this.uxSend.Size = new System.Drawing.Size(85, 41);
             this.uxSend.TabIndex = 40;
             this.uxSend.Text = "Send";
             this.uxSend.Click += new System.EventHandler(this.UxSend_Click);
@@ -136,9 +141,10 @@
             this.uxQuestionCount.BackColor = System.Drawing.Color.Transparent;
             this.uxQuestionCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxQuestionCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxQuestionCount.Location = new System.Drawing.Point(355, 175);
+            this.uxQuestionCount.Location = new System.Drawing.Point(266, 142);
+            this.uxQuestionCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxQuestionCount.Name = "uxQuestionCount";
-            this.uxQuestionCount.Size = new System.Drawing.Size(128, 20);
+            this.uxQuestionCount.Size = new System.Drawing.Size(108, 17);
             this.uxQuestionCount.TabIndex = 39;
             this.uxQuestionCount.Text = "# of Questions: ";
             // 
@@ -148,9 +154,10 @@
             this.uxRecommended.BackColor = System.Drawing.Color.Transparent;
             this.uxRecommended.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxRecommended.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxRecommended.Location = new System.Drawing.Point(355, 206);
+            this.uxRecommended.Location = new System.Drawing.Point(266, 167);
+            this.uxRecommended.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxRecommended.Name = "uxRecommended";
-            this.uxRecommended.Size = new System.Drawing.Size(98, 20);
+            this.uxRecommended.Size = new System.Drawing.Size(80, 17);
             this.uxRecommended.TabIndex = 38;
             this.uxRecommended.Text = "Time Limit: ";
             // 
@@ -160,9 +167,10 @@
             this.uxTimer.BackColor = System.Drawing.Color.Transparent;
             this.uxTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxTimer.Location = new System.Drawing.Point(355, 148);
+            this.uxTimer.Location = new System.Drawing.Point(266, 120);
+            this.uxTimer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxTimer.Name = "uxTimer";
-            this.uxTimer.Size = new System.Drawing.Size(62, 20);
+            this.uxTimer.Size = new System.Drawing.Size(52, 17);
             this.uxTimer.TabIndex = 36;
             this.uxTimer.Text = "Timer: ";
             // 
@@ -171,9 +179,10 @@
             this.uxNextQuestion.BackColor = System.Drawing.Color.Transparent;
             this.uxNextQuestion.BGColor = "#ff0033";
             this.uxNextQuestion.FontColor = "#ffffff";
-            this.uxNextQuestion.Location = new System.Drawing.Point(597, 96);
+            this.uxNextQuestion.Location = new System.Drawing.Point(448, 78);
+            this.uxNextQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxNextQuestion.Name = "uxNextQuestion";
-            this.uxNextQuestion.Size = new System.Drawing.Size(113, 44);
+            this.uxNextQuestion.Size = new System.Drawing.Size(85, 36);
             this.uxNextQuestion.TabIndex = 35;
             this.uxNextQuestion.Text = "Next Question";
             this.uxNextQuestion.Click += new System.EventHandler(this.UxNextQuestion_Click);
@@ -183,9 +192,10 @@
             this.uxStart.BackColor = System.Drawing.Color.Transparent;
             this.uxStart.BGColor = "#ff0033";
             this.uxStart.FontColor = "#ffffff";
-            this.uxStart.Location = new System.Drawing.Point(359, 96);
+            this.uxStart.Location = new System.Drawing.Point(269, 78);
+            this.uxStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxStart.Name = "uxStart";
-            this.uxStart.Size = new System.Drawing.Size(113, 44);
+            this.uxStart.Size = new System.Drawing.Size(85, 36);
             this.uxStart.TabIndex = 34;
             this.uxStart.Text = "Connect";
             this.uxStart.Click += new System.EventHandler(this.UxConnect_Click);
@@ -196,9 +206,10 @@
             this.uxDisconnect.BGColor = "#ff0033";
             this.uxDisconnect.Enabled = false;
             this.uxDisconnect.FontColor = "#ffffff";
-            this.uxDisconnect.Location = new System.Drawing.Point(478, 96);
+            this.uxDisconnect.Location = new System.Drawing.Point(358, 78);
+            this.uxDisconnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxDisconnect.Name = "uxDisconnect";
-            this.uxDisconnect.Size = new System.Drawing.Size(113, 44);
+            this.uxDisconnect.Size = new System.Drawing.Size(85, 36);
             this.uxDisconnect.TabIndex = 33;
             this.uxDisconnect.Text = "Disconnect";
             this.uxDisconnect.Click += new System.EventHandler(this.UxDisconnect_Click);
@@ -208,12 +219,13 @@
             this.uxFriendPort.FocusedColor = "#ff0033";
             this.uxFriendPort.FontColor = "#999999";
             this.uxFriendPort.IsEnabled = true;
-            this.uxFriendPort.Location = new System.Drawing.Point(217, 146);
+            this.uxFriendPort.Location = new System.Drawing.Point(163, 119);
+            this.uxFriendPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxFriendPort.MaxLength = 32767;
             this.uxFriendPort.Multiline = false;
             this.uxFriendPort.Name = "uxFriendPort";
             this.uxFriendPort.ReadOnly = false;
-            this.uxFriendPort.Size = new System.Drawing.Size(111, 24);
+            this.uxFriendPort.Size = new System.Drawing.Size(83, 24);
             this.uxFriendPort.TabIndex = 5;
             this.uxFriendPort.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxFriendPort.UseSystemPasswordChar = false;
@@ -224,9 +236,10 @@
             this.uxLocalLabel.BackColor = System.Drawing.Color.Transparent;
             this.uxLocalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxLocalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxLocalLabel.Location = new System.Drawing.Point(73, 88);
+            this.uxLocalLabel.Location = new System.Drawing.Point(55, 72);
+            this.uxLocalLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxLocalLabel.Name = "uxLocalLabel";
-            this.uxLocalLabel.Size = new System.Drawing.Size(50, 20);
+            this.uxLocalLabel.Size = new System.Drawing.Size(42, 17);
             this.uxLocalLabel.TabIndex = 31;
             this.uxLocalLabel.Text = "Local";
             // 
@@ -235,12 +248,13 @@
             this.uxFriendIP.FocusedColor = "#ff0033";
             this.uxFriendIP.FontColor = "#999999";
             this.uxFriendIP.IsEnabled = true;
-            this.uxFriendIP.Location = new System.Drawing.Point(217, 116);
+            this.uxFriendIP.Location = new System.Drawing.Point(163, 94);
+            this.uxFriendIP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxFriendIP.MaxLength = 32767;
             this.uxFriendIP.Multiline = false;
             this.uxFriendIP.Name = "uxFriendIP";
             this.uxFriendIP.ReadOnly = false;
-            this.uxFriendIP.Size = new System.Drawing.Size(111, 24);
+            this.uxFriendIP.Size = new System.Drawing.Size(83, 24);
             this.uxFriendIP.TabIndex = 4;
             this.uxFriendIP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxFriendIP.UseSystemPasswordChar = false;
@@ -250,12 +264,13 @@
             this.uxLocalPort.FocusedColor = "#ff0033";
             this.uxLocalPort.FontColor = "#999999";
             this.uxLocalPort.IsEnabled = true;
-            this.uxLocalPort.Location = new System.Drawing.Point(42, 146);
+            this.uxLocalPort.Location = new System.Drawing.Point(32, 119);
+            this.uxLocalPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxLocalPort.MaxLength = 32767;
             this.uxLocalPort.Multiline = false;
             this.uxLocalPort.Name = "uxLocalPort";
             this.uxLocalPort.ReadOnly = false;
-            this.uxLocalPort.Size = new System.Drawing.Size(110, 24);
+            this.uxLocalPort.Size = new System.Drawing.Size(82, 24);
             this.uxLocalPort.TabIndex = 4;
             this.uxLocalPort.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxLocalPort.UseSystemPasswordChar = false;
@@ -265,12 +280,13 @@
             this.uxLocalIP.FocusedColor = "#ff0033";
             this.uxLocalIP.FontColor = "#999999";
             this.uxLocalIP.IsEnabled = true;
-            this.uxLocalIP.Location = new System.Drawing.Point(42, 116);
+            this.uxLocalIP.Location = new System.Drawing.Point(32, 94);
+            this.uxLocalIP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxLocalIP.MaxLength = 32767;
             this.uxLocalIP.Multiline = false;
             this.uxLocalIP.Name = "uxLocalIP";
             this.uxLocalIP.ReadOnly = false;
-            this.uxLocalIP.Size = new System.Drawing.Size(110, 24);
+            this.uxLocalIP.Size = new System.Drawing.Size(82, 24);
             this.uxLocalIP.TabIndex = 3;
             this.uxLocalIP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxLocalIP.UseSystemPasswordChar = false;
@@ -280,12 +296,13 @@
             this.uxInputQuestion.FocusedColor = "#ff0033";
             this.uxInputQuestion.FontColor = "#999999";
             this.uxInputQuestion.IsEnabled = true;
-            this.uxInputQuestion.Location = new System.Drawing.Point(12, 726);
+            this.uxInputQuestion.Location = new System.Drawing.Point(9, 590);
+            this.uxInputQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxInputQuestion.MaxLength = 32767;
             this.uxInputQuestion.Multiline = true;
             this.uxInputQuestion.Name = "uxInputQuestion";
             this.uxInputQuestion.ReadOnly = false;
-            this.uxInputQuestion.Size = new System.Drawing.Size(579, 50);
+            this.uxInputQuestion.Size = new System.Drawing.Size(434, 41);
             this.uxInputQuestion.TabIndex = 28;
             this.uxInputQuestion.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxInputQuestion.UseSystemPasswordChar = false;
@@ -295,12 +312,13 @@
             this.uxInputBox.FocusedColor = "#ff0033";
             this.uxInputBox.FontColor = "#999999";
             this.uxInputBox.IsEnabled = true;
-            this.uxInputBox.Location = new System.Drawing.Point(12, 670);
+            this.uxInputBox.Location = new System.Drawing.Point(9, 544);
+            this.uxInputBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxInputBox.MaxLength = 32767;
             this.uxInputBox.Multiline = true;
             this.uxInputBox.Name = "uxInputBox";
             this.uxInputBox.ReadOnly = false;
-            this.uxInputBox.Size = new System.Drawing.Size(579, 50);
+            this.uxInputBox.Size = new System.Drawing.Size(434, 41);
             this.uxInputBox.TabIndex = 27;
             this.uxInputBox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxInputBox.UseSystemPasswordChar = false;
@@ -311,10 +329,9 @@
             this.uxQuestionLabel.BackColor = System.Drawing.Color.Transparent;
             this.uxQuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxQuestionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxQuestionLabel.Location = new System.Drawing.Point(12, 211);
-            this.uxQuestionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.uxQuestionLabel.Location = new System.Drawing.Point(9, 171);
             this.uxQuestionLabel.Name = "uxQuestionLabel";
-            this.uxQuestionLabel.Size = new System.Drawing.Size(81, 20);
+            this.uxQuestionLabel.Size = new System.Drawing.Size(69, 17);
             this.uxQuestionLabel.TabIndex = 26;
             this.uxQuestionLabel.Text = "Question:";
             // 
@@ -324,10 +341,9 @@
             this.uxStudentLabel.BackColor = System.Drawing.Color.Transparent;
             this.uxStudentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.uxStudentLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.uxStudentLabel.Location = new System.Drawing.Point(12, 189);
-            this.uxStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.uxStudentLabel.Location = new System.Drawing.Point(9, 154);
             this.uxStudentLabel.Name = "uxStudentLabel";
-            this.uxStudentLabel.Size = new System.Drawing.Size(71, 20);
+            this.uxStudentLabel.Size = new System.Drawing.Size(61, 17);
             this.uxStudentLabel.TabIndex = 25;
             this.uxStudentLabel.Text = "Student:";
             // 
@@ -336,21 +352,22 @@
             this.uxQuestionText.FocusedColor = "#ff0033";
             this.uxQuestionText.FontColor = "#999999";
             this.uxQuestionText.IsEnabled = true;
-            this.uxQuestionText.Location = new System.Drawing.Point(12, 236);
+            this.uxQuestionText.Location = new System.Drawing.Point(9, 192);
+            this.uxQuestionText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxQuestionText.MaxLength = 32767;
             this.uxQuestionText.Multiline = true;
             this.uxQuestionText.Name = "uxQuestionText";
             this.uxQuestionText.ReadOnly = false;
-            this.uxQuestionText.Size = new System.Drawing.Size(698, 62);
+            this.uxQuestionText.Size = new System.Drawing.Size(524, 50);
             this.uxQuestionText.TabIndex = 3;
             this.uxQuestionText.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.uxQuestionText.UseSystemPasswordChar = false;
             // 
             // TAChatBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 798);
+            this.ClientSize = new System.Drawing.Size(549, 648);
             this.Controls.Add(this.uxChatBox);
             this.Controls.Add(this.uxRemoteLabel);
             this.Controls.Add(this.uxSubmit);
@@ -374,7 +391,7 @@
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "TAChatBox";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
