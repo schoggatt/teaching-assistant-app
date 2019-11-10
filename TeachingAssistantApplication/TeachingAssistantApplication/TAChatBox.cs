@@ -216,37 +216,34 @@ namespace TeachingAssistantApplication
         /// <param name="e"></param> The event
         private async void ServerTimer_Tick(object sender, EventArgs e)
         {
-            FirebaseResponse retrieve = await client.GetAsync("Question Information/" + _username);
-            QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
+            FirebaseResponse retrieveQuestions = await client.GetAsync("Question Information/" + _username);
+            QuestionInformation quesData = retrieveQuestions.ResultAs<QuestionInformation>();
+            FirebaseResponse retrieveUser = await client.GetAsync("User Information/" + _username);
+            UserInformation userData = retrieveUser.ResultAs<UserInformation>();
 
             //Call a helper to get all of the student usernames and place each one in a queue
             if (userData != null)
-            { //Changes
-                Queue<QuestionInformation> usernames = GetUser(userData.username);
-                Queue<string> questions = new Queue<string>();
-                //Iterate through the queue for each username
-
-
-                //Once empty upload that queue to the cloud
+            { 
+                Queue<string> questions = GetQuestion(quesData.username);
+                Queue<string> passQuestions = new Queue<string>();
 
                 if (_isInstructor && userData.Count > 0)
                 {
-                    while (usernames.Count > 0)
+                    while (questions.Count > 0)
                     {
-                        QuestionInformation user = usernames.Dequeue();
-                        if (user.question == String.Empty)
+                        if (questions.Peek() == String.Empty)
                         {
-                            usernames.Dequeue();
+                            questions.Dequeue();
                         }
                         else
                         {
-                            questions.Enqueue(user.question);
+                            passQuestions.Enqueue(questions.Dequeue());
                         }
                     }
-                    queue.AddQuestion(questions.Dequeue(), userData.IP, userData.username);
+                    queue.AddQuestion(passQuestions.Dequeue(), userData.IP, userData.username);
                     uxQuestionCount.Text = "# of Questions: " + queue.Count.ToString();
+                    Console.WriteLine(passQuestions.Dequeue());
                     FirebaseResponse delete = await client.DeleteAsync("Question Information/" + _username);
-                    userData.Count--;
                 }
                 else if (!_isInstructor)
                 {
@@ -271,6 +268,7 @@ namespace TeachingAssistantApplication
             uxDisconnect.Enabled = false;
         }
 
+        public int _count = 0;
         /// <summary>
         /// Click event for the submit button. Adds a new string to construct a new QuestionItem from the cloud.
         /// </summary>
@@ -278,19 +276,20 @@ namespace TeachingAssistantApplication
         /// <param name="e"></param> The event
         private async void UxSubmit_Click(object sender, EventArgs e)
         {
-            int count = 0;
             var questionInfo = new QuestionInformation
+            {
+                username = _username,
+                question = uxInputQuestion.Text
+            };
+            SetResponse queueInfo = await client.SetAsync("Question Information/" + questionInfo.question, questionInfo);
+            var userInfo = new UserInformation
             {
                 username = _username,
                 IP = GetLocalIP(),
                 question = uxInputQuestion.Text,
-                Count = count++
+                Count = _count++
             };
-
-
-            SetResponse queueInfo = await client.SetAsync("Question Information/" + _username, questionInfo);
-            
-
+            SetResponse usernameInfo = await client.SetAsync("User Information/" + _username, userInfo);
             uxChatBox.Text += ("-- QUESTION ADDED --\r\n");
         }
 
@@ -358,12 +357,12 @@ namespace TeachingAssistantApplication
             return "[Student] -- ";
         }
 
-        private Queue<QuestionInformation> GetUser(string username)
+        private Queue<string> GetQuestion(string username)
         {
             FirebaseResponse retrieve = client.Get("Question Information/" + username);
-            QuestionInformation userData = retrieve.ResultAs<QuestionInformation>();
-            Queue<QuestionInformation> userinfo = new Queue<QuestionInformation>();
-            userinfo.Enqueue(userData);
+            QuestionInformation quesData = retrieve.ResultAs<QuestionInformation>();
+            Queue<string> userinfo = new Queue<string>();
+            userinfo.Enqueue(quesData.question);
             return userinfo;
         }
 
