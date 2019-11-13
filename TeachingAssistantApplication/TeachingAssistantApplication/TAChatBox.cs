@@ -219,11 +219,9 @@ namespace TeachingAssistantApplication
         {
             FirebaseResponse retrieveQuestions = await client.GetAsync("Question Information/" + _username);
             QuestionInformation quesData = retrieveQuestions.ResultAs<QuestionInformation>();
-            FirebaseResponse retrieveUser = await client.GetAsync("User Information/" + _username);
-            UserInformation userData = retrieveUser.ResultAs<UserInformation>();
 
             //Call a helper to get all of the student usernames and place each one in a queue
-            if (userData != null && quesData != null)
+            if (quesData != null)
             { 
                 Stack<string> questions = GetQuestion(quesData.question);
                 Stack<string> passQuestions = new Stack<string>();
@@ -238,7 +236,7 @@ namespace TeachingAssistantApplication
                         }
                         else
                         {
-                            queue.AddQuestion(passQuestions.Pop(), userData.IP, userData.username);
+                            queue.AddQuestion(passQuestions.Pop(), quesData.IP, quesData.username);
                         }
                     }
                     uxQuestionCount.Text = "# of Questions: " + queue.Count.ToString();
@@ -279,17 +277,10 @@ namespace TeachingAssistantApplication
             {
                 username = _username,
                 question = uxInputQuestion.Text,
+                IP = GetLocalIP(), 
                 Count = _count++
             };
             SetResponse queueInfo = await client.SetAsync("Question Information/" + questionInfo.question, questionInfo);
-            var userInfo = new UserInformation
-            {
-                username = _username,
-                IP = GetLocalIP(),
-                question = uxInputQuestion.Text,
-                Count = _count++
-            };
-            SetResponse usernameInfo = await client.SetAsync("User Information/" + _username, userInfo);
             uxChatBox.Text += ("-- QUESTION ADDED --\r\n");
         }
 
